@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Empleado extends Persona {
     private LocalDate fechaIngreso;
     private int codEmpleSupervisor;   
-
+            
     public Empleado() {}
 
     public Empleado(int codPersona, String dni, String correo, String nombre,
