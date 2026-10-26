@@ -1,6 +1,6 @@
 package modelo;
 public class Proveedor {
-     private int codProveedor;   // PK
+     private int codProveedor;  
     private String nomEmpresa;
     private String ruc;
     private String telefono;
@@ -18,10 +18,16 @@ public class Proveedor {
         this.avenida = avenida;
         this.distrito = distrito;
     }
-
+    public Proveedor(String nomEmpresa, String ruc, String telefono, String calle, String avenida, String distrito) {
+        this.nomEmpresa = nomEmpresa;
+        this.ruc = ruc;
+        this.telefono = telefono;
+        this.calle = calle;
+        this.avenida = avenida;
+        this.distrito = distrito;
+    }
     public int getCodProveedor() { return codProveedor; }
     public void setCodProveedor(int codProveedor) { this.codProveedor = codProveedor; }
-
     public String getNomEmpresa() { return nomEmpresa; }
     public void setNomEmpresa(String nomEmpresa) { this.nomEmpresa = nomEmpresa; }
 

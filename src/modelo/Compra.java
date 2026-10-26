@@ -1,24 +1,26 @@
 package modelo;
-
 import java.time.LocalDate;
-
 public class Compra {
     private int codCompra;      
     private String tipoPago;
     private LocalDate fechaCompra;
     private String estadoCompra;
-    private int codProveedor;     
-
+    private Proveedor proveedor;     
+    
     public Compra() {}
 
-    public Compra(int codCompra, String tipoPago, LocalDate fechaCompra,
-                  String estadoCompra, int codProveedor)
-    {
+    public Compra(int codCompra, String tipoPago, LocalDate fechaCompra, String estadoCompra, Proveedor proveedor) {
         this.codCompra = codCompra;
         this.tipoPago = tipoPago;
         this.fechaCompra = fechaCompra;
         this.estadoCompra = estadoCompra;
-        this.codProveedor = codProveedor;
+        this.proveedor = proveedor;
+    }
+    public Compra(String tipoPago, LocalDate fechaCompra, String estadoCompra, Proveedor proveedor) {
+        this.tipoPago = tipoPago;
+        this.fechaCompra = fechaCompra;
+        this.estadoCompra = estadoCompra;
+        this.proveedor = proveedor;
     }
 
     public int getCodCompra() { return codCompra; }
@@ -33,6 +35,6 @@ public class Compra {
     public String getEstadoCompra() { return estadoCompra; }
     public void setEstadoCompra(String estadoCompra) { this.estadoCompra = estadoCompra; }
 
-    public int getCodProveedor() { return codProveedor; }
-    public void setCodProveedor(int codProveedor) { this.codProveedor = codProveedor; }
+    public Proveedor getProveedor() {return proveedor;}
+    public void setProveedor(Proveedor proveedor) { this.proveedor = proveedor;}
 }
