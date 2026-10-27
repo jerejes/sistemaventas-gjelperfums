@@ -29,4 +29,11 @@ public class DetalleCompra
     
     public double getDescuento() { return descuento; }
     public void setDescuento(double descuento) { this.descuento = descuento; }
+    
+    public double subtotal ()
+    {
+        return (cantidad*precioUnitario)-descuento;
+    }
 }
+
+
