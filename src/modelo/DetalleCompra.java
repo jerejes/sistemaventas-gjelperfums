@@ -32,7 +32,7 @@ public class DetalleCompra
     
     public double subtotal ()
     {
-        return (cantidad*precioUnitario)-descuento;
+        return cantidad*precioUnitario-descuento;
     }
 }
 

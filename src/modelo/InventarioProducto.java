@@ -3,7 +3,6 @@ public class InventarioProducto {
     private Inventario inventario ; 
     private Producto producto;
     private int stock;
-
     public InventarioProducto() {
     }
     public InventarioProducto(Inventario inventario, Producto producto, int stock) {
