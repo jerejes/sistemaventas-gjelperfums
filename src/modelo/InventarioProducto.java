@@ -1,12 +1,12 @@
 package modelo;
-public class DetalleInventario {
+public class InventarioProducto {
     private Inventario inventario ; 
     private Producto producto;
     private int stock;
 
-    public DetalleInventario() {
+    public InventarioProducto() {
     }
-    public DetalleInventario(Inventario inventario, Producto producto, int stock) {
+    public InventarioProducto(Inventario inventario, Producto producto, int stock) {
         this.inventario = inventario;
         this.producto = producto;
         this.stock = stock;
