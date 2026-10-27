@@ -5,14 +5,18 @@ public class FacturaProducto {
     private int cantidad;
     private double valorTotal;
     
-    public FacturaProducto() {}
-    
-    public FacturaProducto(Producto producto, Factura factura, 
-            int cantidad, double valorTotal) {
+    public FacturaProducto() {
+    }
+    public FacturaProducto(Producto producto, int cantidad) {
+        this.producto = producto;
+        this.cantidad = cantidad;                                   
+        setCantidad(cantidad);
+    }
+
+    public FacturaProducto(Producto producto, Factura factura, int cantidad) {
         this.producto = producto;
         this.factura = factura;
-        this.cantidad = cantidad;
-        this.valorTotal = valorTotal;
+        setCantidad(cantidad);
     }
 
     public Producto getProducto() {
@@ -30,8 +34,12 @@ public class FacturaProducto {
     public int getCantidad() {
         return cantidad;
     }
-    public void setCantidad(int cantidad) {
+    public void setCantidad(int cantidad) 
+    {
         this.cantidad = cantidad;
+        if (producto != null) {
+            this.valorTotal = producto.getPrecioUnidad() * cantidad;
+        }
     }
     public double getValorTotal() {
         return valorTotal;
