@@ -9,6 +9,11 @@ public class conexion {
 
     public static Connection getConnection() {
 
+//       private static String url = "jdbc:sqlserver://localhost/";
+//       private static String bd= "bd_gjelperfums";
+//       private static String usuario= " ";
+       
+               
         String conexionUrl = "jdbc:sqlserver://localhost:1433;"
                 + "databaseName=bd_gjelperfums;"
                 + "user=sa;"
