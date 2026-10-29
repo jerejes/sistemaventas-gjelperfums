@@ -39,9 +39,11 @@ public class formGeneral extends javax.swing.JFrame {
         btnProveedores = new javax.swing.JButton();
         btnEmpleados = new javax.swing.JButton();
         btnBoletaPago = new javax.swing.JButton();
-        btnBoletaVenta = new javax.swing.JButton();
+        btnUsuarios = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnInfo = new javax.swing.JButton();
+        btnBoletaVenta1 = new javax.swing.JButton();
+        btnInventario = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         panelContenido = new javax.swing.JPanel();
 
@@ -57,7 +59,7 @@ public class formGeneral extends javax.swing.JFrame {
         panelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnClientes.setBackground(new java.awt.Color(0, 0, 60));
-        btnClientes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnClientes.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnClientes.setForeground(new java.awt.Color(240, 240, 240));
         btnClientes.setText("Clientes");
         btnClientes.setBorder(null);
@@ -70,10 +72,10 @@ public class formGeneral extends javax.swing.JFrame {
             }
         });
         btnClientes.addActionListener(this::btnClientesActionPerformed);
-        panelMenu.add(btnClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 180, 40));
+        panelMenu.add(btnClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 30));
 
         btnProductos.setBackground(new java.awt.Color(0, 0, 60));
-        btnProductos.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnProductos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnProductos.setForeground(new java.awt.Color(240, 240, 240));
         btnProductos.setText("Productos");
         btnProductos.setBorder(null);
@@ -86,10 +88,10 @@ public class formGeneral extends javax.swing.JFrame {
             }
         });
         btnProductos.addActionListener(this::btnProductosActionPerformed);
-        panelMenu.add(btnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 180, 40));
+        panelMenu.add(btnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 180, 30));
 
         btnProveedores.setBackground(new java.awt.Color(0, 0, 60));
-        btnProveedores.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnProveedores.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnProveedores.setForeground(new java.awt.Color(240, 240, 240));
         btnProveedores.setText("Proveedores");
         btnProveedores.setBorder(null);
@@ -102,10 +104,10 @@ public class formGeneral extends javax.swing.JFrame {
             }
         });
         btnProveedores.addActionListener(this::btnProveedoresActionPerformed);
-        panelMenu.add(btnProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 180, 40));
+        panelMenu.add(btnProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 180, 30));
 
         btnEmpleados.setBackground(new java.awt.Color(0, 0, 60));
-        btnEmpleados.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnEmpleados.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEmpleados.setForeground(new java.awt.Color(240, 240, 240));
         btnEmpleados.setText("Empleados");
         btnEmpleados.setBorder(null);
@@ -118,10 +120,10 @@ public class formGeneral extends javax.swing.JFrame {
             }
         });
         btnEmpleados.addActionListener(this::btnEmpleadosActionPerformed);
-        panelMenu.add(btnEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 180, 40));
+        panelMenu.add(btnEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 180, 30));
 
         btnBoletaPago.setBackground(new java.awt.Color(0, 0, 60));
-        btnBoletaPago.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnBoletaPago.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnBoletaPago.setForeground(new java.awt.Color(240, 240, 240));
         btnBoletaPago.setText("Boletas de Pago");
         btnBoletaPago.setBorder(null);
@@ -134,26 +136,26 @@ public class formGeneral extends javax.swing.JFrame {
             }
         });
         btnBoletaPago.addActionListener(this::btnBoletaPagoActionPerformed);
-        panelMenu.add(btnBoletaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 180, 40));
+        panelMenu.add(btnBoletaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 180, 30));
 
-        btnBoletaVenta.setBackground(new java.awt.Color(0, 0, 60));
-        btnBoletaVenta.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnBoletaVenta.setForeground(new java.awt.Color(240, 240, 240));
-        btnBoletaVenta.setText("Boletas de Venta");
-        btnBoletaVenta.setBorder(null);
-        btnBoletaVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnUsuarios.setBackground(new java.awt.Color(0, 0, 60));
+        btnUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnUsuarios.setForeground(new java.awt.Color(240, 240, 240));
+        btnUsuarios.setText("Usuarios");
+        btnUsuarios.setBorder(null);
+        btnUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnBoletaVentaMouseEntered(evt);
+                btnUsuariosMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnBoletaVentaMouseExited(evt);
+                btnUsuariosMouseExited(evt);
             }
         });
-        btnBoletaVenta.addActionListener(this::btnBoletaVentaActionPerformed);
-        panelMenu.add(btnBoletaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 180, 40));
+        btnUsuarios.addActionListener(this::btnUsuariosActionPerformed);
+        panelMenu.add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 180, 30));
 
         btnSalir.setBackground(new java.awt.Color(0, 0, 60));
-        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(240, 240, 240));
         btnSalir.setText("Salir");
         btnSalir.setBorder(null);
@@ -171,7 +173,7 @@ public class formGeneral extends javax.swing.JFrame {
         panelMenu.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 180, 40));
 
         btnInfo.setBackground(new java.awt.Color(0, 0, 60));
-        btnInfo.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnInfo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnInfo.setForeground(new java.awt.Color(240, 240, 240));
         btnInfo.setText("Información");
         btnInfo.setBorder(null);
@@ -185,6 +187,38 @@ public class formGeneral extends javax.swing.JFrame {
         });
         btnInfo.addActionListener(this::btnInfoActionPerformed);
         panelMenu.add(btnInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 180, 40));
+
+        btnBoletaVenta1.setBackground(new java.awt.Color(0, 0, 60));
+        btnBoletaVenta1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBoletaVenta1.setForeground(new java.awt.Color(240, 240, 240));
+        btnBoletaVenta1.setText("Boletas de Venta");
+        btnBoletaVenta1.setBorder(null);
+        btnBoletaVenta1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBoletaVenta1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBoletaVenta1MouseExited(evt);
+            }
+        });
+        btnBoletaVenta1.addActionListener(this::btnBoletaVenta1ActionPerformed);
+        panelMenu.add(btnBoletaVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 180, 30));
+
+        btnInventario.setBackground(new java.awt.Color(0, 0, 60));
+        btnInventario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnInventario.setForeground(new java.awt.Color(240, 240, 240));
+        btnInventario.setText("Inventario");
+        btnInventario.setBorder(null);
+        btnInventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnInventarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnInventarioMouseExited(evt);
+            }
+        });
+        btnInventario.addActionListener(this::btnInventarioActionPerformed);
+        panelMenu.add(btnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 180, 30));
 
         jPanel1.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 550));
 
@@ -344,7 +378,7 @@ public class formGeneral extends javax.swing.JFrame {
     
 // <editor-fold defaultstate="collapsed" desc="Boton Empleados">
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
-        // TODO add your handling code here:
+        mostrarPanel(new panelEmpleados());
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
     private void btnEmpleadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmpleadosMouseEntered
@@ -362,7 +396,7 @@ public class formGeneral extends javax.swing.JFrame {
     
     
     
-// <editor-fold defaultstate="collapsed" desc="Boton Boleta Venta">
+// <editor-fold defaultstate="collapsed" desc="Boton Boleta Pago">
     private void btnBoletaPagoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBoletaPagoMouseEntered
         btnBoletaPago.setBackground(new Color(250,250,250));
         btnBoletaPago.setForeground(new Color(0,0,60));
@@ -374,7 +408,7 @@ public class formGeneral extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBoletaPagoMouseExited
 
     private void btnBoletaPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoletaPagoActionPerformed
-        // TODO add your handling code here:
+        mostrarPanel(new panelBoletaPago());
     }//GEN-LAST:event_btnBoletaPagoActionPerformed
 // </editor-fold>
 
@@ -382,22 +416,22 @@ public class formGeneral extends javax.swing.JFrame {
     
     
     
-// <editor-fold defaultstate="collapsed" desc="Boton Boleta Pago">    
-    private void btnBoletaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoletaVentaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBoletaVentaActionPerformed
+// <editor-fold defaultstate="collapsed" desc="Boton Usuarios">    
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
+        mostrarPanel(new panelUsuarios());
+    }//GEN-LAST:event_btnUsuariosActionPerformed
 
-    private void btnBoletaVentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBoletaVentaMouseEntered
-        btnBoletaVenta.setBackground(new Color(250,250,250));
-        btnBoletaVenta.setForeground(new Color(0,0,60));
-    }//GEN-LAST:event_btnBoletaVentaMouseEntered
+    private void btnUsuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuariosMouseEntered
+        btnUsuarios.setBackground(new Color(250,250,250));
+        btnUsuarios.setForeground(new Color(0,0,60));
+    }//GEN-LAST:event_btnUsuariosMouseEntered
 
-    private void btnBoletaVentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBoletaVentaMouseExited
-        btnBoletaVenta.setBackground(new Color(0,0,60));
-        btnBoletaVenta.setForeground(new Color(240,240,240));
-    }//GEN-LAST:event_btnBoletaVentaMouseExited
+    private void btnUsuariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuariosMouseExited
+        btnUsuarios.setBackground(new Color(0,0,60));
+        btnUsuarios.setForeground(new Color(240,240,240));
+    }//GEN-LAST:event_btnUsuariosMouseExited
 // </editor-fold>    
-
+    
     
     
     
@@ -417,21 +451,69 @@ public class formGeneral extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInfoActionPerformed
 // </editor-fold>
+
+
+
+
+
+// <editor-fold  desc="Boton Boleta Venta">
+    private void btnBoletaVenta1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBoletaVenta1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBoletaVenta1MouseEntered
+
+    private void btnBoletaVenta1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBoletaVenta1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBoletaVenta1MouseExited
+
+    private void btnBoletaVenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoletaVenta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBoletaVenta1ActionPerformed
+// </editor-fold>
+    
+    
+    
+    
+    
+// <editor-fold defaultstate="collapsed" desc="Boton Inventario">
+    private void btnInventarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventarioMouseEntered
+        btnInventario.setBackground(new Color(250,250,250));
+        btnInventario.setForeground(new Color(0,0,60));
+    }//GEN-LAST:event_btnInventarioMouseEntered
+
+    private void btnInventarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventarioMouseExited
+        btnInventario.setBackground(new Color(0,0,60));
+        btnInventario.setForeground(new Color(240,240,240));
+    }//GEN-LAST:event_btnInventarioMouseExited
+
+    private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
+        mostrarPanel(new panelInventario());
+    }//GEN-LAST:event_btnInventarioActionPerformed
+// </editor-fold>
     
     
     
     
 
+    
+    
+    
+    
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBoletaPago;
-    private javax.swing.JButton btnBoletaVenta;
+    private javax.swing.JButton btnBoletaVenta1;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnEmpleados;
     private javax.swing.JButton btnInfo;
+    private javax.swing.JButton btnInventario;
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnProveedores;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnUsuarios;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelContenido;
     private javax.swing.JPanel panelMenu;

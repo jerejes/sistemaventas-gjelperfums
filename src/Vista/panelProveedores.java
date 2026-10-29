@@ -39,26 +39,20 @@ public class panelProveedores extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         txtRucProv = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtEmpresaProv = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        txtNombreProv = new javax.swing.JTextField();
-        txtDniProv = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        txtApellidoProv = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
+        txtNomEmpresa = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         txtTelefonoProv = new javax.swing.JTextField();
-        txtDireccionProv = new javax.swing.JTextField();
+        txtDistrito = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        txtNacionProv = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        txtCorreoProv = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        LineaDivisora1 = new javax.swing.JPanel();
         btnAgregarProveedor = new javax.swing.JButton();
         btnEliminarProveedor = new javax.swing.JButton();
         btnCerrarProveedor = new javax.swing.JButton();
         btnLimpiarProveedor = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        txtAvenida = new javax.swing.JTextField();
+        txtCalle = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -67,13 +61,14 @@ public class panelProveedores extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 28)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel1.setText("Registra Proveedores");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        jLabel1.setText("Dirección");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         jScrollPane1.setBorder(null);
 
+        tblProveedores.setBackground(new java.awt.Color(204, 204, 204));
         tblProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -116,108 +111,48 @@ public class panelProveedores extends javax.swing.JPanel {
 
         jLabel8.setForeground(new java.awt.Color(40, 40, 40));
         jLabel8.setText("Codigo");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         txtCodigoProv.setBackground(new java.awt.Color(240, 240, 240));
         txtCodigoProv.setForeground(new java.awt.Color(40, 40, 40));
         txtCodigoProv.setBorder(null);
-        jPanel1.add(txtCodigoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 90, 30));
+        jPanel1.add(txtCodigoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 110, 30));
 
         jLabel9.setForeground(new java.awt.Color(40, 40, 40));
         jLabel9.setText("RUC");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
 
         txtRucProv.setBackground(new java.awt.Color(240, 240, 240));
         txtRucProv.setForeground(new java.awt.Color(40, 40, 40));
         txtRucProv.setBorder(null);
-        jPanel1.add(txtRucProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 120, 30));
+        jPanel1.add(txtRucProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 180, 30));
 
         jLabel10.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel10.setText("Empresa");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        jLabel10.setText("Nombre de la empresa");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
-        txtEmpresaProv.setBackground(new java.awt.Color(240, 240, 240));
-        txtEmpresaProv.setForeground(new java.awt.Color(40, 40, 40));
-        txtEmpresaProv.setBorder(null);
-        jPanel1.add(txtEmpresaProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 180, 30));
-
-        jLabel11.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel11.setText("Nombres");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
-
-        txtNombreProv.setBackground(new java.awt.Color(240, 240, 240));
-        txtNombreProv.setForeground(new java.awt.Color(40, 40, 40));
-        txtNombreProv.setBorder(null);
-        jPanel1.add(txtNombreProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 210, 30));
-
-        txtDniProv.setBackground(new java.awt.Color(240, 240, 240));
-        txtDniProv.setForeground(new java.awt.Color(40, 40, 40));
-        txtDniProv.setBorder(null);
-        jPanel1.add(txtDniProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 120, 30));
-
-        jLabel12.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel12.setText("DNI");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, -1));
-
-        txtApellidoProv.setBackground(new java.awt.Color(240, 240, 240));
-        txtApellidoProv.setForeground(new java.awt.Color(40, 40, 40));
-        txtApellidoProv.setBorder(null);
-        jPanel1.add(txtApellidoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 180, 30));
-
-        jLabel13.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel13.setText("Apellidos");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        txtNomEmpresa.setBackground(new java.awt.Color(240, 240, 240));
+        txtNomEmpresa.setForeground(new java.awt.Color(40, 40, 40));
+        txtNomEmpresa.setBorder(null);
+        jPanel1.add(txtNomEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 190, 30));
 
         jLabel15.setForeground(new java.awt.Color(40, 40, 40));
         jLabel15.setText("Teléfono");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, -1, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
 
         txtTelefonoProv.setBackground(new java.awt.Color(240, 240, 240));
         txtTelefonoProv.setForeground(new java.awt.Color(40, 40, 40));
         txtTelefonoProv.setBorder(null);
-        jPanel1.add(txtTelefonoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 120, 30));
+        jPanel1.add(txtTelefonoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 100, 30));
 
-        txtDireccionProv.setBackground(new java.awt.Color(240, 240, 240));
-        txtDireccionProv.setForeground(new java.awt.Color(40, 40, 40));
-        txtDireccionProv.setBorder(null);
-        jPanel1.add(txtDireccionProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 180, 30));
+        txtDistrito.setBackground(new java.awt.Color(240, 240, 240));
+        txtDistrito.setForeground(new java.awt.Color(40, 40, 40));
+        txtDistrito.setBorder(null);
+        jPanel1.add(txtDistrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 180, 30));
 
         jLabel16.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel16.setText("Dirección");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
-
-        txtNacionProv.setBackground(new java.awt.Color(240, 240, 240));
-        txtNacionProv.setForeground(new java.awt.Color(40, 40, 40));
-        txtNacionProv.setBorder(null);
-        jPanel1.add(txtNacionProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 120, 30));
-
-        jLabel17.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel17.setText("Nacionalidad");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, -1, -1));
-
-        txtCorreoProv.setBackground(new java.awt.Color(240, 240, 240));
-        txtCorreoProv.setForeground(new java.awt.Color(40, 40, 40));
-        txtCorreoProv.setBorder(null);
-        jPanel1.add(txtCorreoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 180, 30));
-
-        jLabel18.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel18.setText("Correo");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
-
-        LineaDivisora1.setBackground(new java.awt.Color(220, 220, 220));
-
-        javax.swing.GroupLayout LineaDivisora1Layout = new javax.swing.GroupLayout(LineaDivisora1);
-        LineaDivisora1.setLayout(LineaDivisora1Layout);
-        LineaDivisora1Layout.setHorizontalGroup(
-            LineaDivisora1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
-        );
-        LineaDivisora1Layout.setVerticalGroup(
-            LineaDivisora1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(LineaDivisora1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 146, 320, 1));
+        jLabel16.setText("Distrito");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
         btnAgregarProveedor.setBackground(new java.awt.Color(180, 180, 180));
         btnAgregarProveedor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -243,6 +178,29 @@ public class panelProveedores extends javax.swing.JPanel {
         btnLimpiarProveedor.setText("Limpiar Campos");
         jPanel1.add(btnLimpiarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 150, 35));
 
+        jLabel19.setForeground(new java.awt.Color(40, 40, 40));
+        jLabel19.setText("Avenida");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+
+        txtAvenida.setBackground(new java.awt.Color(240, 240, 240));
+        txtAvenida.setForeground(new java.awt.Color(40, 40, 40));
+        txtAvenida.setBorder(null);
+        jPanel1.add(txtAvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 180, 30));
+
+        txtCalle.setBackground(new java.awt.Color(240, 240, 240));
+        txtCalle.setForeground(new java.awt.Color(40, 40, 40));
+        txtCalle.setBorder(null);
+        jPanel1.add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 180, 30));
+
+        jLabel20.setForeground(new java.awt.Color(40, 40, 40));
+        jLabel20.setText("Calle");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 28)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(40, 40, 40));
+        jLabel2.setText("PROVEEDORES");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
         jLayeredPane1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 520));
 
         add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 520));
@@ -251,21 +209,18 @@ public class panelProveedores extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LineaDivisora;
-    private javax.swing.JPanel LineaDivisora1;
     private javax.swing.JButton btnAgregarProveedor;
     private javax.swing.JButton btnCerrarProveedor;
     private javax.swing.JButton btnEliminarProveedor;
     private javax.swing.JButton btnLimpiarProveedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
@@ -273,14 +228,11 @@ public class panelProveedores extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCantidadProveedores;
     private javax.swing.JTable tblProveedores;
-    private javax.swing.JTextField txtApellidoProv;
+    private javax.swing.JTextField txtAvenida;
+    private javax.swing.JTextField txtCalle;
     private javax.swing.JTextField txtCodigoProv;
-    private javax.swing.JTextField txtCorreoProv;
-    private javax.swing.JTextField txtDireccionProv;
-    private javax.swing.JTextField txtDniProv;
-    private javax.swing.JTextField txtEmpresaProv;
-    private javax.swing.JTextField txtNacionProv;
-    private javax.swing.JTextField txtNombreProv;
+    private javax.swing.JTextField txtDistrito;
+    private javax.swing.JTextField txtNomEmpresa;
     private javax.swing.JTextField txtRucProv;
     private javax.swing.JTextField txtTelefonoProv;
     // End of variables declaration//GEN-END:variables
