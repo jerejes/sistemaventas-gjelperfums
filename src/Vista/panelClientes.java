@@ -32,18 +32,15 @@ public class panelClientes extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblClientes = new javax.swing.JTable();
         txtCodigoCliente = new javax.swing.JTextField();
-        txtNombresCliente = new javax.swing.JTextField();
+        txtNombreCliente = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtDniCliente = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtApePatCliente = new javax.swing.JTextField();
+        txtApellidoCliente = new javax.swing.JTextField();
         lblCantidadRegistros = new javax.swing.JLabel();
-        txtApeMatCliente = new javax.swing.JTextField();
-        spinEdadCliente = new javax.swing.JSpinner();
         jLabel8 = new javax.swing.JLabel();
         btnCerrarCliente = new javax.swing.JButton();
         btnAgregarCliente = new javax.swing.JButton();
@@ -51,11 +48,12 @@ public class panelClientes extends javax.swing.JPanel {
         btnEliminarCliente = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         txtTelefonoCliente = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         txtCorreoCliente = new javax.swing.JTextField();
         LineaDivisora = new javax.swing.JPanel();
+        txtDniCliente1 = new javax.swing.JTextField();
+        txtFecNacCliente = new com.toedter.calendar.JDateChooser();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -71,6 +69,7 @@ public class panelClientes extends javax.swing.JPanel {
 
         jScrollPane1.setBorder(null);
 
+        tblClientes.setBackground(new java.awt.Color(204, 204, 204));
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -89,25 +88,25 @@ public class panelClientes extends javax.swing.JPanel {
         txtCodigoCliente.setBackground(new java.awt.Color(240, 240, 240));
         txtCodigoCliente.setForeground(new java.awt.Color(40, 40, 40));
         txtCodigoCliente.setBorder(null);
-        jPanel1.add(txtCodigoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 150, 30));
+        jPanel1.add(txtCodigoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 90, 30));
 
-        txtNombresCliente.setBackground(new java.awt.Color(240, 240, 240));
-        txtNombresCliente.setForeground(new java.awt.Color(40, 40, 40));
-        txtNombresCliente.setBorder(null);
-        jPanel1.add(txtNombresCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 320, 30));
+        txtNombreCliente.setBackground(new java.awt.Color(240, 240, 240));
+        txtNombreCliente.setForeground(new java.awt.Color(40, 40, 40));
+        txtNombreCliente.setBorder(null);
+        jPanel1.add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 320, 30));
 
         jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel1.setText("Registra nuevos Clientes");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        jLabel1.setText("REGISTRO DE CLIENTES");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         jLabel2.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel2.setText("Nombres");
+        jLabel2.setText("Nombre");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel3.setText("Edad");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, -1, -1));
+        jLabel3.setText("Fecha de Nacimiento");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, 20));
 
         jLabel4.setForeground(new java.awt.Color(40, 40, 40));
         jLabel4.setText("Dirección");
@@ -115,34 +114,21 @@ public class panelClientes extends javax.swing.JPanel {
 
         jLabel5.setForeground(new java.awt.Color(40, 40, 40));
         jLabel5.setText("DNI");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
-
-        txtDniCliente.setBackground(new java.awt.Color(240, 240, 240));
-        txtDniCliente.setForeground(new java.awt.Color(40, 40, 40));
-        txtDniCliente.setBorder(null);
-        jPanel1.add(txtDniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 150, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel6.setText("Apellido Paterno");
+        jLabel6.setText("Apellido");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
-        txtApePatCliente.setBackground(new java.awt.Color(240, 240, 240));
-        txtApePatCliente.setForeground(new java.awt.Color(40, 40, 40));
-        txtApePatCliente.setBorder(null);
-        jPanel1.add(txtApePatCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 110, 30));
+        txtApellidoCliente.setBackground(new java.awt.Color(240, 240, 240));
+        txtApellidoCliente.setForeground(new java.awt.Color(40, 40, 40));
+        txtApellidoCliente.setBorder(null);
+        jPanel1.add(txtApellidoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 200, 30));
 
         lblCantidadRegistros.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCantidadRegistros.setForeground(new java.awt.Color(40, 40, 40));
         lblCantidadRegistros.setText("0");
         jPanel1.add(lblCantidadRegistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 470, 50, -1));
-
-        txtApeMatCliente.setBackground(new java.awt.Color(240, 240, 240));
-        txtApeMatCliente.setForeground(new java.awt.Color(40, 40, 40));
-        txtApeMatCliente.setBorder(null);
-        jPanel1.add(txtApeMatCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 110, 30));
-
-        spinEdadCliente.setBorder(null);
-        jPanel1.add(spinEdadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 60, 30));
 
         jLabel8.setForeground(new java.awt.Color(40, 40, 40));
         jLabel8.setText("Codigo");
@@ -180,24 +166,20 @@ public class panelClientes extends javax.swing.JPanel {
         txtTelefonoCliente.setBackground(new java.awt.Color(240, 240, 240));
         txtTelefonoCliente.setForeground(new java.awt.Color(40, 40, 40));
         txtTelefonoCliente.setBorder(null);
-        jPanel1.add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 110, 30));
-
-        jLabel12.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel12.setText("Apellido Materno");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+        jPanel1.add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 100, 30));
 
         jLabel13.setForeground(new java.awt.Color(40, 40, 40));
         jLabel13.setText("Teléfono");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
 
         jLabel14.setForeground(new java.awt.Color(40, 40, 40));
         jLabel14.setText("Correo Electrónico");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         txtCorreoCliente.setBackground(new java.awt.Color(240, 240, 240));
         txtCorreoCliente.setForeground(new java.awt.Color(40, 40, 40));
         txtCorreoCliente.setBorder(null);
-        jPanel1.add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 190, 30));
+        jPanel1.add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 200, 30));
 
         LineaDivisora.setBackground(new java.awt.Color(220, 220, 220));
 
@@ -214,6 +196,15 @@ public class panelClientes extends javax.swing.JPanel {
 
         jPanel1.add(LineaDivisora, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 1, 460));
 
+        txtDniCliente1.setBackground(new java.awt.Color(240, 240, 240));
+        txtDniCliente1.setForeground(new java.awt.Color(40, 40, 40));
+        txtDniCliente1.setBorder(null);
+        jPanel1.add(txtDniCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 100, 30));
+
+        txtFecNacCliente.setBackground(new java.awt.Color(204, 204, 204));
+        txtFecNacCliente.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtFecNacCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 210, 30));
+
         jLayeredPane1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 520));
 
         add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 520));
@@ -228,7 +219,6 @@ public class panelClientes extends javax.swing.JPanel {
     private javax.swing.JButton btnLimpiarCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
@@ -241,15 +231,14 @@ public class panelClientes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCantidadRegistros;
-    private javax.swing.JSpinner spinEdadCliente;
     private javax.swing.JTable tblClientes;
-    private javax.swing.JTextField txtApeMatCliente;
-    private javax.swing.JTextField txtApePatCliente;
+    private javax.swing.JTextField txtApellidoCliente;
     private javax.swing.JTextField txtCodigoCliente;
     private javax.swing.JTextField txtCorreoCliente;
     private javax.swing.JTextField txtDireccionCliente;
-    private javax.swing.JTextField txtDniCliente;
-    private javax.swing.JTextField txtNombresCliente;
+    private javax.swing.JTextField txtDniCliente1;
+    private com.toedter.calendar.JDateChooser txtFecNacCliente;
+    private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables
 }
