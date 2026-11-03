@@ -191,7 +191,7 @@ public class formGeneral extends javax.swing.JFrame {
         btnBoletaVenta1.setBackground(new java.awt.Color(0, 0, 60));
         btnBoletaVenta1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnBoletaVenta1.setForeground(new java.awt.Color(240, 240, 240));
-        btnBoletaVenta1.setText("Boletas de Venta");
+        btnBoletaVenta1.setText("Venta");
         btnBoletaVenta1.setBorder(null);
         btnBoletaVenta1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -328,7 +328,7 @@ public class formGeneral extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClientesMouseExited
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        mostrarPanel(new panelClientes());
+        mostrarPanel(new panelRegistroClientes());
     }//GEN-LAST:event_btnClientesActionPerformed
 // </editor-fold>
     
@@ -358,7 +358,7 @@ public class formGeneral extends javax.swing.JFrame {
     
 // <editor-fold defaultstate="collapsed" desc="Boton Proveedores">
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
-        mostrarPanel(new panelProveedores());
+        mostrarPanel(new panelRegistroProveedores());
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void btnProveedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProveedoresMouseEntered
@@ -378,7 +378,7 @@ public class formGeneral extends javax.swing.JFrame {
     
 // <editor-fold defaultstate="collapsed" desc="Boton Empleados">
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
-        mostrarPanel(new panelEmpleados());
+        mostrarPanel(new PanelRegistroEmpleados());
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
     private void btnEmpleadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmpleadosMouseEntered
@@ -458,7 +458,7 @@ public class formGeneral extends javax.swing.JFrame {
 
 // <editor-fold  desc="Boton Boleta Venta">
     private void btnBoletaVenta1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBoletaVenta1MouseEntered
-        // TODO add your handling code here:
+         mostrarPanel(new panelventa());
     }//GEN-LAST:event_btnBoletaVenta1MouseEntered
 
     private void btnBoletaVenta1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBoletaVenta1MouseExited

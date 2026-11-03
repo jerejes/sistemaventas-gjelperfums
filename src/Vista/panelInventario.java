@@ -26,19 +26,15 @@ public class panelInventario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        btnAjustarStockInv = new javax.swing.JButton();
         btnBuscarInv = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        spinStockInv = new javax.swing.JSpinner();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblInventario = new javax.swing.JTable();
-        cmbCodProdInv = new javax.swing.JComboBox<>();
-        txtFechaInv = new com.toedter.calendar.JDateChooser();
+        txtCodigoPr = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -56,22 +52,8 @@ public class panelInventario extends javax.swing.JPanel {
         jLabel8.setText("Codigo del Producto:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        jLabel3.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel3.setText("Fecha de Registro:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 100, 20));
-
-        btnAjustarStockInv.setText("Ajustar Stock");
-        jPanel1.add(btnAjustarStockInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 100, 120, 30));
-
         btnBuscarInv.setText("Buscar");
-        jPanel1.add(btnBuscarInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 120, 30));
-
-        jLabel9.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel9.setText("Stock:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
-
-        spinStockInv.setBorder(null);
-        jPanel1.add(spinStockInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 90, 30));
+        jPanel1.add(btnBuscarInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 100, 120, 40));
 
         tblInventario.setBackground(new java.awt.Color(204, 204, 204));
         tblInventario.setModel(new javax.swing.table.DefaultTableModel(
@@ -87,34 +69,24 @@ public class panelInventario extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblInventario);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 900, 360));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 820, 360));
+        jPanel1.add(txtCodigoPr, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 680, 40));
 
-        cmbCodProdInv.setBackground(new java.awt.Color(240, 240, 240));
-        cmbCodProdInv.setForeground(new java.awt.Color(40, 40, 40));
-        cmbCodProdInv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbCodProdInv.setBorder(null);
-        jPanel1.add(cmbCodProdInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 130, 30));
-        jPanel1.add(txtFechaInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 180, 30));
-
-        jLayeredPane1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 520));
+        jLayeredPane1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 550));
 
         add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 520));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAjustarStockInv;
     private javax.swing.JButton btnBuscarInv;
-    private javax.swing.JComboBox<String> cmbCodProdInv;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner spinStockInv;
     private javax.swing.JTable tblInventario;
-    private com.toedter.calendar.JDateChooser txtFechaInv;
+    private javax.swing.JTextField txtCodigoPr;
     // End of variables declaration//GEN-END:variables
 }

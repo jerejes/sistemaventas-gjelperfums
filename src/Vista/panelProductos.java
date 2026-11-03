@@ -14,84 +14,107 @@ public class panelProductos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtCodigoProd = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtNombreProd = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        cmbMarcaProd = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblProductos = new javax.swing.JTable();
-        jLabel12 = new javax.swing.JLabel();
-        txtPrecioProd = new javax.swing.JTextField();
+        txtNombreProd1 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        LineaDivisora1 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        lblCantidadProductos = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        cmbProveedorProd = new javax.swing.JComboBox<>();
-        btnNuevaMarcaProd = new javax.swing.JButton();
-        btnAgregarProd = new javax.swing.JButton();
-        btnLimpiarProd = new javax.swing.JButton();
-        btnEliminarProd = new javax.swing.JButton();
-        btnCerrarProd = new javax.swing.JButton();
-        LineaDivisora = new javax.swing.JPanel();
+        txtPrecioProd1 = new javax.swing.JTextField();
+        btnAgregarProd1 = new javax.swing.JButton();
+        btnLimpiarProd1 = new javax.swing.JButton();
+        btnEliminarProd1 = new javax.swing.JButton();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jTextField4 = new javax.swing.JTextField();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        btnLimpiarProd2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnLimpiarProd3 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 0, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLayeredPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 28)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(40, 40, 40));
+        jLabel1.setFont(new java.awt.Font("Gloucester MT Extra Condensed", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("PRODUCTOS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
-        jLabel8.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel8.setText("Codigo:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        jLabel10.setFont(new java.awt.Font("Dubai", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Nombre:");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        txtCodigoProd.setBackground(new java.awt.Color(240, 240, 240));
-        txtCodigoProd.setForeground(new java.awt.Color(40, 40, 40));
-        txtCodigoProd.setBorder(null);
-        jPanel1.add(txtCodigoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 140, 30));
+        txtNombreProd1.setBackground(new java.awt.Color(240, 240, 240));
+        txtNombreProd1.setFont(new java.awt.Font("Dubai", 1, 12)); // NOI18N
+        txtNombreProd1.setForeground(new java.awt.Color(255, 255, 255));
+        txtNombreProd1.setBorder(null);
+        add(txtNombreProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 320, 30));
 
-        jLabel9.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel9.setText("Nombre:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        jLabel13.setFont(new java.awt.Font("Dubai", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Precio Unitario:");
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
-        txtNombreProd.setBackground(new java.awt.Color(240, 240, 240));
-        txtNombreProd.setForeground(new java.awt.Color(40, 40, 40));
-        txtNombreProd.setBorder(null);
-        jPanel1.add(txtNombreProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 320, 30));
+        txtPrecioProd1.setBackground(new java.awt.Color(240, 240, 240));
+        txtPrecioProd1.setFont(new java.awt.Font("Dubai", 1, 12)); // NOI18N
+        txtPrecioProd1.setForeground(new java.awt.Color(255, 255, 255));
+        txtPrecioProd1.setBorder(null);
+        add(txtPrecioProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 120, 30));
 
-        jLabel10.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel10.setText("Descripcion:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        btnAgregarProd1.setBackground(new java.awt.Color(0, 153, 255));
+        btnAgregarProd1.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
+        btnAgregarProd1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarProd1.setText("Agregar");
+        add(btnAgregarProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 150, 40));
 
-        jLabel11.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel11.setText("Obligatorio - Seleccione 1 proveedor para registrar.\n");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 270, 20));
+        btnLimpiarProd1.setBackground(new java.awt.Color(0, 153, 0));
+        btnLimpiarProd1.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
+        btnLimpiarProd1.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarProd1.setText("Modificar");
+        add(btnLimpiarProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 150, 40));
 
-        cmbMarcaProd.setBackground(new java.awt.Color(240, 240, 240));
-        cmbMarcaProd.setForeground(new java.awt.Color(40, 40, 40));
-        cmbMarcaProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbMarcaProd.setBorder(null);
-        jPanel1.add(cmbMarcaProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 190, 30));
+        btnEliminarProd1.setBackground(new java.awt.Color(255, 51, 51));
+        btnEliminarProd1.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
+        btnEliminarProd1.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarProd1.setText("Eliminar");
+        add(btnEliminarProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 150, 40));
 
-        jScrollPane1.setBorder(null);
+        jComboBox3.setFont(new java.awt.Font("Dubai", 1, 12)); // NOI18N
+        jComboBox3.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setBorder(javax.swing.BorderFactory.createTitledBorder("Genero:"));
+        add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 120, 50));
 
-        tblProductos.setBackground(new java.awt.Color(204, 204, 204));
-        tblProductos.setModel(new javax.swing.table.DefaultTableModel(
+        jTextField4.setFont(new java.awt.Font("Dubai", 1, 12)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField4.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo Accesorio:"));
+        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 120, 50));
+
+        jComboBox4.setFont(new java.awt.Font("Dubai", 1, 12)); // NOI18N
+        jComboBox4.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo:"));
+        add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 120, 50));
+
+        jTextField5.setFont(new java.awt.Font("Dubai", 1, 12)); // NOI18N
+        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField5.setBorder(javax.swing.BorderFactory.createTitledBorder("Material:"));
+        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 120, -1));
+
+        jTextField6.setFont(new java.awt.Font("Dubai", 1, 12)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField6.setBorder(javax.swing.BorderFactory.createTitledBorder("cont ml:"));
+        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 120, -1));
+
+        btnLimpiarProd2.setBackground(new java.awt.Color(255, 102, 153));
+        btnLimpiarProd2.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
+        btnLimpiarProd2.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarProd2.setText("Mostrar");
+        add(btnLimpiarProd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 150, 40));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -102,146 +125,39 @@ public class panelProductos extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblProductos);
+        jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 540, 440));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 550, -1));
 
-        jLabel12.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel12.setText("Precio Unitario:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
+        btnLimpiarProd3.setBackground(new java.awt.Color(0, 153, 153));
+        btnLimpiarProd3.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
+        btnLimpiarProd3.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarProd3.setText("Limpiar Campos");
+        add(btnLimpiarProd3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, 150, 30));
 
-        txtPrecioProd.setBackground(new java.awt.Color(240, 240, 240));
-        txtPrecioProd.setForeground(new java.awt.Color(40, 40, 40));
-        txtPrecioProd.setBorder(null);
-        jPanel1.add(txtPrecioProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 160, 30));
-
-        jLabel13.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel13.setText("Proveedor:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-
-        LineaDivisora1.setBackground(new java.awt.Color(220, 220, 220));
-
-        javax.swing.GroupLayout LineaDivisora1Layout = new javax.swing.GroupLayout(LineaDivisora1);
-        LineaDivisora1.setLayout(LineaDivisora1Layout);
-        LineaDivisora1Layout.setHorizontalGroup(
-            LineaDivisora1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
-        );
-        LineaDivisora1Layout.setVerticalGroup(
-            LineaDivisora1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(LineaDivisora1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 153, 320, 1));
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel14.setText("Cantidad de Registros:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, -1, -1));
-
-        lblCantidadProductos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblCantidadProductos.setForeground(new java.awt.Color(40, 40, 40));
-        lblCantidadProductos.setText("0");
-        jPanel1.add(lblCantidadProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 470, 50, -1));
-
-        jLabel16.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel16.setText("Marca:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
-
-        jTextArea1.setBackground(new java.awt.Color(240, 240, 240));
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(40, 40, 40));
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(null);
-        jScrollPane2.setViewportView(jTextArea1);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 320, 50));
-
-        cmbProveedorProd.setBackground(new java.awt.Color(240, 240, 240));
-        cmbProveedorProd.setForeground(new java.awt.Color(40, 40, 40));
-        cmbProveedorProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbProveedorProd.setBorder(null);
-        jPanel1.add(cmbProveedorProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 190, 30));
-
-        btnNuevaMarcaProd.setBackground(new java.awt.Color(51, 153, 0));
-        btnNuevaMarcaProd.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnNuevaMarcaProd.setForeground(new java.awt.Color(255, 255, 255));
-        btnNuevaMarcaProd.setText("Nueva Marca");
-        jPanel1.add(btnNuevaMarcaProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 110, 30));
-
-        btnAgregarProd.setBackground(new java.awt.Color(180, 180, 180));
-        btnAgregarProd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAgregarProd.setForeground(new java.awt.Color(0, 0, 0));
-        btnAgregarProd.setText("Agregar");
-        jPanel1.add(btnAgregarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 150, 35));
-
-        btnLimpiarProd.setBackground(new java.awt.Color(180, 180, 180));
-        btnLimpiarProd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLimpiarProd.setForeground(new java.awt.Color(0, 0, 0));
-        btnLimpiarProd.setText("Limpiar Campos");
-        jPanel1.add(btnLimpiarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 150, 35));
-
-        btnEliminarProd.setBackground(new java.awt.Color(180, 180, 180));
-        btnEliminarProd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEliminarProd.setForeground(new java.awt.Color(0, 0, 0));
-        btnEliminarProd.setText("Eliminar");
-        jPanel1.add(btnEliminarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 150, 35));
-
-        btnCerrarProd.setBackground(new java.awt.Color(180, 180, 180));
-        btnCerrarProd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCerrarProd.setForeground(new java.awt.Color(0, 0, 0));
-        btnCerrarProd.setText("Cerrar");
-        jPanel1.add(btnCerrarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 150, 35));
-
-        LineaDivisora.setBackground(new java.awt.Color(220, 220, 220));
-
-        javax.swing.GroupLayout LineaDivisoraLayout = new javax.swing.GroupLayout(LineaDivisora);
-        LineaDivisora.setLayout(LineaDivisoraLayout);
-        LineaDivisoraLayout.setHorizontalGroup(
-            LineaDivisoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1, Short.MAX_VALUE)
-        );
-        LineaDivisoraLayout.setVerticalGroup(
-            LineaDivisoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(LineaDivisora, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 1, 460));
-
-        jLayeredPane1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 520));
-
-        add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 520));
+        jLabel2.setText("Cantidad De Registros:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel LineaDivisora;
-    private javax.swing.JPanel LineaDivisora1;
-    private javax.swing.JButton btnAgregarProd;
-    private javax.swing.JButton btnCerrarProd;
-    private javax.swing.JButton btnEliminarProd;
-    private javax.swing.JButton btnLimpiarProd;
-    private javax.swing.JButton btnNuevaMarcaProd;
-    private javax.swing.JComboBox<String> cmbMarcaProd;
-    private javax.swing.JComboBox<String> cmbProveedorProd;
+    private javax.swing.JButton btnAgregarProd1;
+    private javax.swing.JButton btnEliminarProd1;
+    private javax.swing.JButton btnLimpiarProd1;
+    private javax.swing.JButton btnLimpiarProd2;
+    private javax.swing.JButton btnLimpiarProd3;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel lblCantidadProductos;
-    private javax.swing.JTable tblProductos;
-    private javax.swing.JTextField txtCodigoProd;
-    private javax.swing.JTextField txtNombreProd;
-    private javax.swing.JTextField txtPrecioProd;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtNombreProd1;
+    private javax.swing.JTextField txtPrecioProd1;
     // End of variables declaration//GEN-END:variables
 }
