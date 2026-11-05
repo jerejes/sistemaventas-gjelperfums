@@ -27,36 +27,31 @@ public class panelInventario extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btnBuscarInv = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblInventario = new javax.swing.JTable();
         txtCodigoPr = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 28)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel1.setText("INVENTARIO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-
-        jLabel8.setForeground(new java.awt.Color(40, 40, 40));
+        jLabel8.setFont(new java.awt.Font("Swis721 BlkCn BT", 0, 13)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Codigo del Producto:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
+        btnBuscarInv.setBackground(new java.awt.Color(0, 102, 204));
+        btnBuscarInv.setFont(new java.awt.Font("Swis721 BlkCn BT", 0, 13)); // NOI18N
+        btnBuscarInv.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarInv.setText("Buscar");
-        jPanel1.add(btnBuscarInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 100, 120, 40));
+        add(btnBuscarInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 120, 40));
+        add(txtCodigoPr, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 300, 40));
 
-        tblInventario.setBackground(new java.awt.Color(204, 204, 204));
-        tblInventario.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -67,26 +62,37 @@ public class panelInventario extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblInventario);
+        jScrollPane2.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 820, 360));
-        jPanel1.add(txtCodigoPr, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 680, 40));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 790, 320));
 
-        jLayeredPane1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 550));
+        jLabel2.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel2.setText("GESTION DE INVENTARIO");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
-        add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 520));
+        jCheckBox1.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
+        jCheckBox1.setForeground(new java.awt.Color(255, 51, 0));
+        jCheckBox1.setText("Agotados");
+        jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Square721 Cn BT", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("TOTAL:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 480, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarInv;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblInventario;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtCodigoPr;
     // End of variables declaration//GEN-END:variables
 }

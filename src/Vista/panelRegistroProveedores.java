@@ -33,29 +33,28 @@ public class panelRegistroProveedores extends javax.swing.JPanel {
         txtNomEmpresa = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         txtDistrito = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        txtCalle = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        txtAvenida = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        txtTelefonoProv = new javax.swing.JTextField();
         btnCerrarCliente = new javax.swing.JButton();
         btnAgregarCliente = new javax.swing.JButton();
         btnLimpiarCliente = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        txtCalle = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        txtTelefonoProv = new javax.swing.JTextField();
+        txtAvenida = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Gloucester MT Extra Condensed", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel2.setText("PROVEEDORES");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Gill Sans MT Ext Condensed Bold", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel2.setText("NUEVO PROVEEDOR");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        txtRucProv.setBackground(new java.awt.Color(102, 102, 102));
+        txtRucProv.setBackground(new java.awt.Color(255, 255, 255));
         txtRucProv.setForeground(new java.awt.Color(102, 102, 102));
-        txtRucProv.setBorder(null);
-        add(txtRucProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, 30));
+        txtRucProv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        add(txtRucProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 290, 30));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -64,85 +63,23 @@ public class panelRegistroProveedores extends javax.swing.JPanel {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Nombre de la empresa");
+        jLabel10.setText("Nombre de la empresa (*)");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        txtNomEmpresa.setBackground(new java.awt.Color(102, 102, 102));
+        txtNomEmpresa.setBackground(new java.awt.Color(255, 255, 255));
         txtNomEmpresa.setForeground(new java.awt.Color(102, 102, 102));
-        txtNomEmpresa.setBorder(null);
+        txtNomEmpresa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         add(txtNomEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 290, 30));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Teléfono");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
-        txtDistrito.setBackground(new java.awt.Color(102, 102, 102));
+        txtDistrito.setBackground(new java.awt.Color(255, 255, 255));
         txtDistrito.setForeground(new java.awt.Color(102, 102, 102));
-        txtDistrito.setBorder(null);
-        add(txtDistrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 130, 30));
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Direccion", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Historic", 1, 14), new java.awt.Color(255, 0, 0))); // NOI18N
-        jPanel1.setOpaque(false);
-
-        jLabel20.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel20.setText("Calle");
-
-        txtCalle.setBackground(new java.awt.Color(102, 102, 102));
-        txtCalle.setForeground(new java.awt.Color(102, 102, 102));
-        txtCalle.setBorder(null);
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel19.setText("Avenida");
-
-        txtAvenida.setBackground(new java.awt.Color(102, 102, 102));
-        txtAvenida.setForeground(new java.awt.Color(102, 102, 102));
-        txtAvenida.setBorder(null);
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(40, 40, 40));
-        jLabel16.setText("Distrito");
-
-        txtTelefonoProv.setBackground(new java.awt.Color(102, 102, 102));
-        txtTelefonoProv.setForeground(new java.awt.Color(102, 102, 102));
-        txtTelefonoProv.setBorder(null);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel20)
-                    .addComponent(txtCalle, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(jLabel19)
-                    .addComponent(txtAvenida)
-                    .addComponent(jLabel16)
-                    .addComponent(txtTelefonoProv))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel20)
-                .addGap(2, 2, 2)
-                .addComponent(txtCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel19)
-                .addGap(2, 2, 2)
-                .addComponent(txtAvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel16)
-                .addGap(2, 2, 2)
-                .addComponent(txtTelefonoProv, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 200, 200));
+        txtDistrito.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        add(txtDistrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 290, 30));
 
         btnCerrarCliente.setBackground(new java.awt.Color(255, 0, 0));
         btnCerrarCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -150,27 +87,52 @@ public class panelRegistroProveedores extends javax.swing.JPanel {
         btnCerrarCliente.setText("x");
         add(btnCerrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, -1, 35));
 
-        btnAgregarCliente.setBackground(new java.awt.Color(51, 153, 0));
+        btnAgregarCliente.setBackground(new java.awt.Color(0, 102, 102));
         btnAgregarCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAgregarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarCliente.setText("Guardar");
-        add(btnAgregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 150, 35));
+        add(btnAgregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, 140, 35));
 
         btnLimpiarCliente.setBackground(new java.awt.Color(255, 51, 51));
         btnLimpiarCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLimpiarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiarCliente.setText("Limpiar ");
         btnLimpiarCliente.setToolTipText("");
-        add(btnLimpiarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 110, 35));
+        add(btnLimpiarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 130, 35));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(40, 40, 40));
+        jLabel20.setText("Calle");
+        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+
+        txtCalle.setBackground(new java.awt.Color(255, 255, 255));
+        txtCalle.setForeground(new java.awt.Color(102, 102, 102));
+        txtCalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 290, 30));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(40, 40, 40));
+        jLabel19.setText("Avenida");
+        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(40, 40, 40));
+        jLabel16.setText("Distrito");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+
+        txtTelefonoProv.setBackground(new java.awt.Color(255, 255, 255));
+        txtTelefonoProv.setForeground(new java.awt.Color(102, 102, 102));
+        txtTelefonoProv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        add(txtTelefonoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 290, 30));
+
+        txtAvenida.setBackground(new java.awt.Color(255, 255, 255));
+        txtAvenida.setForeground(new java.awt.Color(102, 102, 102));
+        txtAvenida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        add(txtAvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 290, 30));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel LineaDivisora;
-    private javax.swing.JPanel LineaDivisora1;
-    private javax.swing.JPanel LineaDivisora2;
-    private javax.swing.JPanel LineaDivisora3;
-    private javax.swing.JPanel LineaDivisora4;
     private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnCerrarCliente;
     private javax.swing.JButton btnLimpiarCliente;
@@ -181,7 +143,6 @@ public class panelRegistroProveedores extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtAvenida;
     private javax.swing.JTextField txtCalle;
     private javax.swing.JTextField txtDistrito;

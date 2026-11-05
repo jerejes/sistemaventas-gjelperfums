@@ -15,8 +15,6 @@ public class formGeneral extends javax.swing.JFrame {
         
         
     }
-
-
     private void mostrarPanel(JPanel p) {
 
     panelContenido.removeAll();
@@ -49,6 +47,7 @@ public class formGeneral extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1200, 550));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -220,7 +219,7 @@ public class formGeneral extends javax.swing.JFrame {
         btnInventario.addActionListener(this::btnInventarioActionPerformed);
         panelMenu.add(btnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 180, 30));
 
-        jPanel1.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 550));
+        jPanel1.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 700));
 
         btnMenu.setBackground(new java.awt.Color(0, 0, 60));
         btnMenu.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -233,9 +232,9 @@ public class formGeneral extends javax.swing.JFrame {
 
         panelContenido.setBackground(new java.awt.Color(255, 255, 255));
         panelContenido.setLayout(new java.awt.BorderLayout());
-        jPanel1.add(panelContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 920, 520));
+        jPanel1.add(panelContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 920, 660));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 550));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -328,17 +327,16 @@ public class formGeneral extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClientesMouseExited
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        mostrarPanel(new panelRegistroClientes());
+        mostrarPanel(new PanelCliente());
     }//GEN-LAST:event_btnClientesActionPerformed
-// </editor-fold>
-    
+  
     
     
     
     
 // <editor-fold defaultstate="collapsed" desc="Boton Productos">
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
-        mostrarPanel(new panelProductos());
+        mostrarPanel(new PanelRegistroProductos());
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnProductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductosMouseEntered
@@ -408,7 +406,7 @@ public class formGeneral extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBoletaPagoMouseExited
 
     private void btnBoletaPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoletaPagoActionPerformed
-        mostrarPanel(new panelBoletaPago());
+     
     }//GEN-LAST:event_btnBoletaPagoActionPerformed
 // </editor-fold>
 
