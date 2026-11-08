@@ -15,6 +15,7 @@ public class Principal {
         }
         
         formGeneral form1 = new formGeneral();
+        form1.setSize(1280, 950);
         form1.setTitle("Principal");
         form1.setLocationRelativeTo(null);
         form1.setVisible(true);

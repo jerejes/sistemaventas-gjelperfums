@@ -85,12 +85,12 @@ private boolean menuAbierto = true; // true = menú abierto, false = menú cerra
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        btnClientes = new javax.swing.JButton();
+        btnClientes = new modelo.BotonRedondeado();
         btnProductos = new javax.swing.JButton();
         btnProveedores = new javax.swing.JButton();
         btnEmpleados = new javax.swing.JButton();
-        btnBoletaPago = new javax.swing.JButton();
         btnBoletaVenta1 = new javax.swing.JButton();
+        btnCompra = new javax.swing.JButton();
         btnInventario = new javax.swing.JButton();
         btnUsuarios = new javax.swing.JButton();
         btnInfo = new javax.swing.JButton();
@@ -111,78 +111,83 @@ private boolean menuAbierto = true; // true = menú abierto, false = menú cerra
         jPanel2.setPreferredSize(new java.awt.Dimension(300, 100));
         jPanel2.setLayout(new java.awt.BorderLayout());
 
+        jPanel4.setBackground(new java.awt.Color(255, 0, 102));
         jPanel4.setPreferredSize(new java.awt.Dimension(300, 100));
         jPanel2.add(jPanel4, java.awt.BorderLayout.PAGE_START);
 
+        jPanel6.setBackground(new java.awt.Color(255, 0, 102));
         jPanel6.setLayout(new java.awt.GridLayout(10, 0));
 
-        btnClientes.setBackground(new java.awt.Color(0, 102, 102));
-        btnClientes.setFont(new java.awt.Font("Gill Sans MT Condensed", 1, 18)); // NOI18N
-        btnClientes.setForeground(new java.awt.Color(240, 240, 240));
+        btnClientes.setBackground(new java.awt.Color(51, 51, 51));
+        btnClientes.setFont(new java.awt.Font("Swis721 Cn BT", 1, 18)); // NOI18N
+        btnClientes.setForeground(new java.awt.Color(255, 255, 255));
         btnClientes.setText("Clientes");
         btnClientes.setBorder(null);
         btnClientes.addActionListener(this::btnClientesActionPerformed);
         jPanel6.add(btnClientes);
 
-        btnProductos.setBackground(new java.awt.Color(0, 102, 102));
-        btnProductos.setFont(new java.awt.Font("Gill Sans MT Condensed", 1, 18)); // NOI18N
-        btnProductos.setForeground(new java.awt.Color(240, 240, 240));
+        btnProductos.setBackground(new java.awt.Color(51, 51, 51));
+        btnProductos.setFont(new java.awt.Font("Swis721 Cn BT", 1, 18)); // NOI18N
+        btnProductos.setForeground(new java.awt.Color(255, 255, 255));
         btnProductos.setText("Productos");
         btnProductos.setBorder(null);
         jPanel6.add(btnProductos);
 
-        btnProveedores.setBackground(new java.awt.Color(0, 102, 102));
-        btnProveedores.setFont(new java.awt.Font("Gill Sans MT Condensed", 1, 18)); // NOI18N
-        btnProveedores.setForeground(new java.awt.Color(240, 240, 240));
+        btnProveedores.setBackground(new java.awt.Color(51, 51, 51));
+        btnProveedores.setFont(new java.awt.Font("Swis721 Cn BT", 1, 18)); // NOI18N
+        btnProveedores.setForeground(new java.awt.Color(255, 255, 255));
         btnProveedores.setText("Proveedores");
         btnProveedores.setBorder(null);
+        btnProveedores.addActionListener(this::btnProveedoresActionPerformed);
         jPanel6.add(btnProveedores);
 
-        btnEmpleados.setBackground(new java.awt.Color(0, 102, 102));
-        btnEmpleados.setFont(new java.awt.Font("Gill Sans MT Condensed", 1, 18)); // NOI18N
-        btnEmpleados.setForeground(new java.awt.Color(240, 240, 240));
+        btnEmpleados.setBackground(new java.awt.Color(51, 51, 51));
+        btnEmpleados.setFont(new java.awt.Font("Swis721 Cn BT", 1, 18)); // NOI18N
+        btnEmpleados.setForeground(new java.awt.Color(255, 255, 255));
         btnEmpleados.setText("Empleados");
         btnEmpleados.setBorder(null);
+        btnEmpleados.addActionListener(this::btnEmpleadosActionPerformed);
         jPanel6.add(btnEmpleados);
 
-        btnBoletaPago.setBackground(new java.awt.Color(0, 102, 102));
-        btnBoletaPago.setFont(new java.awt.Font("Gill Sans MT Condensed", 1, 18)); // NOI18N
-        btnBoletaPago.setForeground(new java.awt.Color(240, 240, 240));
-        btnBoletaPago.setText("Boletas de Pago");
-        btnBoletaPago.setBorder(null);
-        jPanel6.add(btnBoletaPago);
-
-        btnBoletaVenta1.setBackground(new java.awt.Color(0, 102, 102));
-        btnBoletaVenta1.setFont(new java.awt.Font("Gill Sans MT Condensed", 1, 18)); // NOI18N
-        btnBoletaVenta1.setForeground(new java.awt.Color(240, 240, 240));
+        btnBoletaVenta1.setBackground(new java.awt.Color(51, 51, 51));
+        btnBoletaVenta1.setFont(new java.awt.Font("Swis721 Cn BT", 1, 18)); // NOI18N
+        btnBoletaVenta1.setForeground(new java.awt.Color(255, 255, 255));
         btnBoletaVenta1.setText("Venta");
         btnBoletaVenta1.setBorder(null);
         jPanel6.add(btnBoletaVenta1);
 
-        btnInventario.setBackground(new java.awt.Color(0, 102, 102));
-        btnInventario.setFont(new java.awt.Font("Gill Sans MT Condensed", 1, 18)); // NOI18N
-        btnInventario.setForeground(new java.awt.Color(240, 240, 240));
+        btnCompra.setBackground(new java.awt.Color(51, 51, 51));
+        btnCompra.setFont(new java.awt.Font("Swis721 Cn BT", 1, 18)); // NOI18N
+        btnCompra.setForeground(new java.awt.Color(255, 255, 255));
+        btnCompra.setText("Compra");
+        btnCompra.setBorder(null);
+        btnCompra.addActionListener(this::btnCompraActionPerformed);
+        jPanel6.add(btnCompra);
+
+        btnInventario.setBackground(new java.awt.Color(51, 51, 51));
+        btnInventario.setFont(new java.awt.Font("Swis721 Cn BT", 1, 18)); // NOI18N
+        btnInventario.setForeground(new java.awt.Color(255, 255, 255));
         btnInventario.setText("Inventario");
         btnInventario.setBorder(null);
         jPanel6.add(btnInventario);
 
-        btnUsuarios.setBackground(new java.awt.Color(0, 102, 102));
-        btnUsuarios.setFont(new java.awt.Font("Gill Sans MT Condensed", 1, 18)); // NOI18N
-        btnUsuarios.setForeground(new java.awt.Color(240, 240, 240));
+        btnUsuarios.setBackground(new java.awt.Color(51, 51, 51));
+        btnUsuarios.setFont(new java.awt.Font("Swis721 Cn BT", 1, 18)); // NOI18N
+        btnUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         btnUsuarios.setText("Usuarios");
         btnUsuarios.setBorder(null);
         jPanel6.add(btnUsuarios);
 
-        btnInfo.setBackground(new java.awt.Color(0, 102, 102));
-        btnInfo.setFont(new java.awt.Font("Gill Sans MT Condensed", 1, 18)); // NOI18N
-        btnInfo.setForeground(new java.awt.Color(240, 240, 240));
+        btnInfo.setBackground(new java.awt.Color(51, 51, 51));
+        btnInfo.setFont(new java.awt.Font("Swis721 Cn BT", 1, 18)); // NOI18N
+        btnInfo.setForeground(new java.awt.Color(255, 255, 255));
         btnInfo.setText("Información");
         btnInfo.setBorder(null);
         jPanel6.add(btnInfo);
 
-        btnSalir.setBackground(new java.awt.Color(0, 102, 102));
-        btnSalir.setFont(new java.awt.Font("Gill Sans MT Condensed", 1, 18)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(240, 240, 240));
+        btnSalir.setBackground(new java.awt.Color(51, 51, 51));
+        btnSalir.setFont(new java.awt.Font("Swis721 Cn BT", 1, 18)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.setBorder(null);
         btnSalir.addActionListener(this::btnSalirActionPerformed);
@@ -199,7 +204,7 @@ private boolean menuAbierto = true; // true = menú abierto, false = menú cerra
         jPanel5.setPreferredSize(new java.awt.Dimension(100, 30));
         jPanel5.setLayout(new java.awt.BorderLayout());
 
-        btndesplegarMenu.setBackground(new java.awt.Color(0, 0, 60));
+        btndesplegarMenu.setBackground(new java.awt.Color(255, 0, 153));
         btndesplegarMenu.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         btndesplegarMenu.setForeground(new java.awt.Color(240, 240, 240));
         btndesplegarMenu.setText("<");
@@ -219,24 +224,36 @@ private boolean menuAbierto = true; // true = menú abierto, false = menú cerra
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-
-        mostrarPanel(new Clien());
-    }//GEN-LAST:event_btnClientesActionPerformed
-
     private void btndesplegarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndesplegarMenuActionPerformed
         animarMenu();
     }//GEN-LAST:event_btndesplegarMenuActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraActionPerformed
+        mostrarPanel(new PanelCompr());
+    }//GEN-LAST:event_btnCompraActionPerformed
+
+    private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
+        mostrarPanel(new PanelEmpledos());
+    }//GEN-LAST:event_btnEmpleadosActionPerformed
+
+    private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
+        mostrarPanel(new PanelProveedores());
+    }//GEN-LAST:event_btnProveedoresActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+
+        mostrarPanel(new PanelCliente());
+    }//GEN-LAST:event_btnClientesActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBoletaPago;
     private javax.swing.JButton btnBoletaVenta1;
     private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnCompra;
     private javax.swing.JButton btnEmpleados;
     private javax.swing.JButton btnInfo;
     private javax.swing.JButton btnInventario;
