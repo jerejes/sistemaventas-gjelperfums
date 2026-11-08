@@ -5,6 +5,9 @@ import javax.swing.JOptionPane;
 public class panelRegistroProveedores extends javax.swing.JPanel {
     public panelRegistroProveedores() {
         initComponents();
+        btnguardarprove.setIcon(icono("/imagenes/finalizarcompra.png", 20));
+        btnLimpiar.setIcon(icono("/imagenes/Limpiar.png", 20));
+
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -18,8 +21,8 @@ public class panelRegistroProveedores extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         txtDistrito = new javax.swing.JTextField();
         btnCerrarproveedor = new javax.swing.JButton();
-        btnAgregarCliente = new javax.swing.JButton();
-        btnLimpiarCliente = new javax.swing.JButton();
+        btnguardarprove = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         txtCalle = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
@@ -73,22 +76,21 @@ public class panelRegistroProveedores extends javax.swing.JPanel {
         btnCerrarproveedor.setBackground(new java.awt.Color(255, 0, 0));
         btnCerrarproveedor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCerrarproveedor.setForeground(new java.awt.Color(255, 255, 255));
-        btnCerrarproveedor.setText("x");
         btnCerrarproveedor.addActionListener(this::btnCerrarproveedorActionPerformed);
         jPanel1.add(btnCerrarproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 30, 35));
 
-        btnAgregarCliente.setBackground(new java.awt.Color(0, 102, 102));
-        btnAgregarCliente.setFont(new java.awt.Font("Swis721 Cn BT", 1, 13)); // NOI18N
-        btnAgregarCliente.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregarCliente.setText("Guardar");
-        jPanel1.add(btnAgregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 140, 40));
+        btnguardarprove.setBackground(new java.awt.Color(0, 102, 102));
+        btnguardarprove.setFont(new java.awt.Font("Swis721 Cn BT", 1, 13)); // NOI18N
+        btnguardarprove.setForeground(new java.awt.Color(255, 255, 255));
+        btnguardarprove.setText("Guardar");
+        jPanel1.add(btnguardarprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 140, 50));
 
-        btnLimpiarCliente.setBackground(new java.awt.Color(255, 51, 51));
-        btnLimpiarCliente.setFont(new java.awt.Font("Swis721 Cn BT", 1, 13)); // NOI18N
-        btnLimpiarCliente.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpiarCliente.setText("Limpiar ");
-        btnLimpiarCliente.setToolTipText("");
-        jPanel1.add(btnLimpiarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 610, 130, 40));
+        btnLimpiar.setBackground(new java.awt.Color(0, 102, 204));
+        btnLimpiar.setFont(new java.awt.Font("Swis721 Cn BT", 1, 13)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiar.setText("Limpiar ");
+        btnLimpiar.setToolTipText("");
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 610, 130, 50));
 
         jLabel20.setFont(new java.awt.Font("Square721 Cn BT", 1, 13)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(40, 40, 40));
@@ -122,7 +124,10 @@ public class panelRegistroProveedores extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
+    private javax.swing.ImageIcon icono(String ruta, int tam) {
+        java.awt.Image img = new javax.swing.ImageIcon(getClass().getResource(ruta)).getImage();
+        return new javax.swing.ImageIcon(img.getScaledInstance(tam, tam, java.awt.Image.SCALE_SMOOTH));
+    }
     private void btnCerrarproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarproveedorActionPerformed
              int x = JOptionPane.showConfirmDialog(this, "¿Seguro que desea cerrar?", "CERRAR",
                     JOptionPane.YES_NO_OPTION);
@@ -133,9 +138,9 @@ public class panelRegistroProveedores extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnCerrarproveedor;
-    private javax.swing.JButton btnLimpiarCliente;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnguardarprove;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

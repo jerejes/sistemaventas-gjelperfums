@@ -17,6 +17,16 @@ public class PanelEmpledos extends javax.swing.JPanel {
             }
             
         });
+        btnbuscaremp.setIcon(icono("/imagenes/search.png", 20));
+        btnAgregarEmpleado.setIcon(icono("/imagenes/plus.png", 20));
+        btnEliminarEmpleado.setIcon(icono("/imagenes/trash.png", 20));
+        btnmodificar.setIcon(icono("/imagenes/edit.png", 20));
+
+
+    }
+    private javax.swing.ImageIcon icono(String ruta, int tam) {
+        java.awt.Image img = new javax.swing.ImageIcon(getClass().getResource(ruta)).getImage();
+        return new javax.swing.ImageIcon(img.getScaledInstance(tam, tam, java.awt.Image.SCALE_SMOOTH));
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -27,7 +37,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
+        btnbuscaremp = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
         btnAgregarEmpleado = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -42,7 +52,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jLabel4.setFont(new java.awt.Font("Rockwell Nova Cond", 0, 36)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Gill Sans MT Ext Condensed Bold", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 102));
         jLabel4.setText(" GESTION DE EMPLEADOS");
         jPanel1.add(jLabel4, java.awt.BorderLayout.PAGE_START);
@@ -81,12 +91,12 @@ public class PanelEmpledos extends javax.swing.JPanel {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setPreferredSize(new java.awt.Dimension(382, 70));
 
-        jButton5.setBackground(new java.awt.Color(0, 102, 255));
-        jButton5.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Buscar ");
+        btnbuscaremp.setBackground(new java.awt.Color(0, 102, 255));
+        btnbuscaremp.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        btnbuscaremp.setForeground(new java.awt.Color(255, 255, 255));
+        btnbuscaremp.setText("Buscar ");
 
-        btnmodificar.setBackground(new java.awt.Color(255, 0, 153));
+        btnmodificar.setBackground(new java.awt.Color(255, 51, 102));
         btnmodificar.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         btnmodificar.setForeground(new java.awt.Color(255, 255, 255));
         btnmodificar.setText("Modificar");
@@ -94,7 +104,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
         btnAgregarEmpleado.setBackground(new java.awt.Color(0, 102, 102));
         btnAgregarEmpleado.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         btnAgregarEmpleado.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregarEmpleado.setText("+ Agregar");
+        btnAgregarEmpleado.setText(" Agregar");
         btnAgregarEmpleado.addActionListener(this::btnAgregarEmpleadoActionPerformed);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -102,11 +112,11 @@ public class PanelEmpledos extends javax.swing.JPanel {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(btnmodificar, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                .addGap(28, 28, 28)
-                .addComponent(btnAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnbuscaremp, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAgregarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -114,7 +124,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnbuscaremp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -150,7 +160,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 644, Short.MAX_VALUE)
         );
 
         add(jPanel3, java.awt.BorderLayout.LINE_START);
@@ -163,7 +173,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
         btnEliminarEmpleado.setBackground(new java.awt.Color(255, 51, 51));
         btnEliminarEmpleado.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         btnEliminarEmpleado.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminarEmpleado.setText("X Eliminar");
+        btnEliminarEmpleado.setText("Eliminar");
         jPanel10.add(btnEliminarEmpleado, java.awt.BorderLayout.LINE_END);
 
         add(jPanel10, java.awt.BorderLayout.PAGE_END);
@@ -180,8 +190,8 @@ public class PanelEmpledos extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarEmpleado;
     private javax.swing.JButton btnEliminarEmpleado;
+    private javax.swing.JButton btnbuscaremp;
     private javax.swing.JButton btnmodificar;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

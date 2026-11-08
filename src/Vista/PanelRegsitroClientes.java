@@ -5,8 +5,16 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
     public boolean cerra;
     public PanelRegsitroClientes() {
         initComponents();
-    }
+        btnGuardarCliente.setIcon(icono("/imagenes/finalizarcompra.png", 20));
+        btnLimpiarCliente.setIcon(icono("/imagenes/Limpiar.png", 20));
+        btnCerrarCliente.setIcon(icono("/imagenes/logout.png", 20));
 
+    }
+    
+    public javax.swing.ImageIcon icono(String ruta, int tam) {
+        java.awt.Image img = new javax.swing.ImageIcon(getClass().getResource(ruta)).getImage();
+        return new javax.swing.ImageIcon(img.getScaledInstance(tam, tam, java.awt.Image.SCALE_SMOOTH));
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -21,7 +29,7 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         txtApellidoCliente = new javax.swing.JTextField();
         btnCerrarCliente = new javax.swing.JButton();
-        btnAgregarCliente = new javax.swing.JButton();
+        btnGuardarCliente = new javax.swing.JButton();
         btnLimpiarCliente = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -88,15 +96,14 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
         btnCerrarCliente.setBackground(new java.awt.Color(255, 0, 0));
         btnCerrarCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCerrarCliente.setForeground(new java.awt.Color(255, 255, 255));
-        btnCerrarCliente.setText("x");
         btnCerrarCliente.addActionListener(this::btnCerrarClienteActionPerformed);
-        jPanel1.add(btnCerrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 2, -1, 35));
+        jPanel1.add(btnCerrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 2, 40, 35));
 
-        btnAgregarCliente.setBackground(new java.awt.Color(0, 153, 153));
-        btnAgregarCliente.setFont(new java.awt.Font("Square721 Cn BT", 1, 14)); // NOI18N
-        btnAgregarCliente.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregarCliente.setText("Guardar");
-        jPanel1.add(btnAgregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 552, 150, 50));
+        btnGuardarCliente.setBackground(new java.awt.Color(0, 153, 153));
+        btnGuardarCliente.setFont(new java.awt.Font("Square721 Cn BT", 1, 14)); // NOI18N
+        btnGuardarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarCliente.setText("Guardar");
+        jPanel1.add(btnGuardarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 552, 150, 50));
 
         btnLimpiarCliente.setBackground(new java.awt.Color(255, 51, 51));
         btnLimpiarCliente.setFont(new java.awt.Font("Square721 Cn BT", 1, 14)); // NOI18N
@@ -151,8 +158,8 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCerrarClienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnCerrarCliente;
+    private javax.swing.JButton btnGuardarCliente;
     private javax.swing.JButton btnLimpiarCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;

@@ -12,12 +12,22 @@ public class PanelProveedores extends javax.swing.JPanel {
                 @Override
                 public void componentHidden(ComponentEvent e) 
                 {
-                    jButton5.setVisible(true);
+                    btnNuevoProv.setVisible(true);
                     btnEliminarProveedor.setVisible(true);
                     btnModificarProveedor.setVisible(true);
                 }
 
          });
+        btnbuscarprov.setIcon(icono("/imagenes/search.png", 20));
+        btnModificarProveedor.setIcon(icono("/imagenes/edit.png", 20));
+            btnNuevoProv.setIcon(icono("/imagenes/plus.png", 20));
+        btnEliminarProveedor.setIcon(icono("/imagenes/trash.png", 20));
+
+
+    }
+    private javax.swing.ImageIcon icono(String ruta, int tam) {
+        java.awt.Image img = new javax.swing.ImageIcon(getClass().getResource(ruta)).getImage();
+        return new javax.swing.ImageIcon(img.getScaledInstance(tam, tam, java.awt.Image.SCALE_SMOOTH));
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -29,8 +39,8 @@ public class PanelProveedores extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnbuscarprov = new javax.swing.JButton();
+        btnNuevoProv = new javax.swing.JButton();
         btnModificarProveedor = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -80,19 +90,20 @@ public class PanelProveedores extends javax.swing.JPanel {
         jPanel4.setLayout(new java.awt.BorderLayout());
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setPreferredSize(new java.awt.Dimension(326, 48));
+        jPanel5.setPreferredSize(new java.awt.Dimension(400, 48));
+        jPanel5.setRequestFocusEnabled(false);
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Buscar ");
+        btnbuscarprov.setBackground(new java.awt.Color(0, 102, 255));
+        btnbuscarprov.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        btnbuscarprov.setForeground(new java.awt.Color(255, 255, 255));
+        btnbuscarprov.setText("Buscar ");
 
-        jButton5.setBackground(new java.awt.Color(0, 102, 102));
-        jButton5.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("+ Nuevo");
-        jButton5.setActionCommand("+ Nuevo ");
-        jButton5.addActionListener(this::jButton5ActionPerformed);
+        btnNuevoProv.setBackground(new java.awt.Color(0, 102, 102));
+        btnNuevoProv.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        btnNuevoProv.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevoProv.setText("Nuevo");
+        btnNuevoProv.setActionCommand("+ Nuevo ");
+        btnNuevoProv.addActionListener(this::btnNuevoProvActionPerformed);
 
         btnModificarProveedor.setBackground(new java.awt.Color(0, 51, 153));
         btnModificarProveedor.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
@@ -104,24 +115,22 @@ public class PanelProveedores extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnModificarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnbuscarprov, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
-                .addGap(18, 18, 18))
+                .addComponent(btnModificarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnNuevoProv, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                .addGap(7, 7, 7))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addComponent(btnModificarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModificarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(btnbuscarprov, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnNuevoProv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -160,7 +169,7 @@ public class PanelProveedores extends javax.swing.JPanel {
         btnEliminarProveedor.setBackground(new java.awt.Color(255, 51, 51));
         btnEliminarProveedor.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         btnEliminarProveedor.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminarProveedor.setText("X Eliminar");
+        btnEliminarProveedor.setText("Eliminar");
         jPanel2.add(btnEliminarProveedor, java.awt.BorderLayout.LINE_END);
 
         add(jPanel2, java.awt.BorderLayout.PAGE_END);
@@ -183,19 +192,19 @@ public class PanelProveedores extends javax.swing.JPanel {
         add(panelRegistroProveedores1, java.awt.BorderLayout.LINE_END);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnNuevoProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProvActionPerformed
         panelRegistroProveedores1.setVisible(true);
-        jButton5.setVisible(false);
+        btnNuevoProv.setVisible(false);
         btnEliminarProveedor.setVisible(false);
         btnModificarProveedor.setVisible(false);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnNuevoProvActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminarProveedor;
     private javax.swing.JButton btnModificarProveedor;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnNuevoProv;
+    private javax.swing.JButton btnbuscarprov;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

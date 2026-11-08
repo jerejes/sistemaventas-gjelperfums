@@ -4,6 +4,8 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
 
     public PanelRegistroEmpleados() {
         initComponents();
+        btnguardaremp.setIcon(icono("/imagenes/finalizarcompra.png", 20));
+            btnLimpiaremp.setIcon(icono("/imagenes/Limpiar.png", 20));
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -25,8 +27,8 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
         txtFecNacCliente = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
         txtDireccionCliente = new javax.swing.JTextField();
-        btnAgregarCliente = new javax.swing.JButton();
-        btnLimpiarCliente = new javax.swing.JButton();
+        btnguardaremp = new javax.swing.JButton();
+        btnLimpiaremp = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txtFecNacCliente1 = new com.toedter.calendar.JDateChooser();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -121,18 +123,18 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
         txtDireccionCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
         jPanel1.add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 210, 40));
 
-        btnAgregarCliente.setBackground(new java.awt.Color(0, 102, 102));
-        btnAgregarCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAgregarCliente.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregarCliente.setText("Guardar");
-        jPanel1.add(btnAgregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 120, 40));
+        btnguardaremp.setBackground(new java.awt.Color(0, 102, 102));
+        btnguardaremp.setFont(new java.awt.Font("Square721 BT", 1, 14)); // NOI18N
+        btnguardaremp.setForeground(new java.awt.Color(255, 255, 255));
+        btnguardaremp.setText("Guardar");
+        jPanel1.add(btnguardaremp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 130, 50));
 
-        btnLimpiarCliente.setBackground(new java.awt.Color(255, 51, 51));
-        btnLimpiarCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLimpiarCliente.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpiarCliente.setText("Limpiar ");
-        btnLimpiarCliente.setToolTipText("");
-        jPanel1.add(btnLimpiarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 580, 110, 40));
+        btnLimpiaremp.setBackground(new java.awt.Color(0, 102, 204));
+        btnLimpiaremp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLimpiaremp.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiaremp.setText("Limpiar ");
+        btnLimpiaremp.setToolTipText("");
+        jPanel1.add(btnLimpiaremp, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 580, 130, 50));
 
         jLabel7.setFont(new java.awt.Font("Square721 Cn BT", 1, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
@@ -156,7 +158,10 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
+    private javax.swing.ImageIcon icono(String ruta, int tam) {
+        java.awt.Image img = new javax.swing.ImageIcon(getClass().getResource(ruta)).getImage();
+        return new javax.swing.ImageIcon(img.getScaledInstance(tam, tam, java.awt.Image.SCALE_SMOOTH));
+    }
     private void btnCerrarempleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarempleadoActionPerformed
        int x = JOptionPane.showConfirmDialog(this, "¿Seguro que desea cerrar?", "CERRAR",
                 JOptionPane.YES_NO_OPTION);
@@ -167,9 +172,9 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnCerrarempleado;
-    private javax.swing.JButton btnLimpiarCliente;
+    private javax.swing.JButton btnLimpiaremp;
+    private javax.swing.JButton btnguardaremp;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
