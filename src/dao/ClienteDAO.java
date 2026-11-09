@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import modelo.Cliente;
 import modelo.Proveedor;
 
@@ -37,5 +39,51 @@ public class ClienteDAO {
                 ps.executeUpdate();
             }
         }
+    }
+    public DefaultTableModel buscarCliente(String texto) {
+        String[] titulos = {"N° Serie", "DNI", "Correo", "Nombre", 
+            "Apellido", "Teléfono", "Dirección", "Fecha de nacimiento", "Estado"};
+        
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        
+        String sql = "SELECT * FROM ventas.CLIENTE";
+        if (texto != null && !texto.isBlank()) {
+            sql += " WHERE num_serie LIKE ? "
+                    + "OR nombre LIKE ? "
+                    + "OR dni LIKE ? ";
+        }
+        sql += " ORDER BY num_serie";
+        try (Connection cn = conexion.getConnection(); 
+                PreparedStatement ps = cn.prepareStatement(sql)) {
+
+            if (texto != null && !texto.isBlank()) {
+                String buscar = "%" + texto.trim() + "%";
+                ps.setString(1, buscar);
+                ps.setString(2, buscar);
+                ps.setString(3, buscar);
+            }
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Cliente cli = new Cliente(
+                            rs.getInt("cod_cliente"),
+                            rs.getString("dni"),
+                            rs.getString("correo"),
+                            rs.getString("nombre"),
+                            rs.getString("apellido"),
+                            rs.getString("telefono"),
+                            rs.getString("direccion"),
+                            rs.getDate("fecha_nac").toLocalDate(),
+                            rs.getString("num_serie"),
+                            rs.getString("estado")
+                    );
+                    modelo.addRow(cli.mostrarDatos());
+                }
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se pudieron cargar los proveedores.\n"
+                    + "Inténtelo nuevamente.\n" + e.getMessage(), "Error al buscar proveedores",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        return modelo;
     }
 }

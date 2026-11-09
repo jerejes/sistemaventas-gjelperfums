@@ -20,6 +20,19 @@ public class Cliente extends Persona
         super(dni, correo, nombre, apellido, telefono, direccion, fechanac);
         this.estado = estado;
     }
+    public Object[] mostrarDatos() {
+        return new Object[]{
+            getNumserie(),
+            getDni(),
+            getCorreo(),
+            getNombre(),
+            getApellido(),
+            getTelefono(),
+            getDireccion(),
+            getFechanac(),
+            getEstado()
+        };
+    }
     public String getNumserie() {
         return numserie;
     }

@@ -1,8 +1,12 @@
 package Vista;
-public class PanelCliente extends javax.swing.JPanel {
 
+import dao.ClienteDAO;
+
+public class PanelCliente extends javax.swing.JPanel {
+    public final ClienteDAO daocli = new ClienteDAO();
     public PanelCliente() {
         initComponents();
+        tblmostrarclientes.setModel(daocli.buscarCliente(""));
         panelRegsitroClientes2.setVisible(false);
         panelRegsitroClientes2.addComponentListener(new java.awt.event.ComponentAdapter() {
         @Override
@@ -30,7 +34,7 @@ public class PanelCliente extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         btnEliminarCliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblmostrarclientes = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -61,7 +65,7 @@ public class PanelCliente extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblmostrarclientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -72,8 +76,8 @@ public class PanelCliente extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setPreferredSize(new java.awt.Dimension(290, 80));
-        jScrollPane1.setViewportView(jTable1);
+        tblmostrarclientes.setPreferredSize(new java.awt.Dimension(290, 80));
+        jScrollPane1.setViewportView(tblmostrarclientes);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -177,8 +181,8 @@ public class PanelCliente extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private Vista.PanelRegsitroClientes panelRegsitroClientes2;
+    private javax.swing.JTable tblmostrarclientes;
     // End of variables declaration//GEN-END:variables
 }
