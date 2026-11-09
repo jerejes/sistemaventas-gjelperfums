@@ -96,7 +96,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
         btnbuscaremp.setForeground(new java.awt.Color(255, 255, 255));
         btnbuscaremp.setText("Buscar ");
 
-        btnmodificar.setBackground(new java.awt.Color(255, 51, 102));
+        btnmodificar.setBackground(new java.awt.Color(0, 51, 204));
         btnmodificar.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         btnmodificar.setForeground(new java.awt.Color(255, 255, 255));
         btnmodificar.setText("Modificar");

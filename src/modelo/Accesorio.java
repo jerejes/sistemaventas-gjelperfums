@@ -2,23 +2,33 @@ package modelo;
 public class Accesorio extends Producto {
     private String tipoAccesorio;
     private String material;
-    public Accesorio(String tipoAccesorio, String material) {
+    public Accesorio() {
+    }
+    // completo: para leer de la base de datos
+    public Accesorio(int codProducto, String numSerie, String nomProd, double precio,
+            int stock, Inventario inventario, String tipoAccesorio, String material) {
+        super(codProducto, numSerie, nomProd, precio, stock, inventario);
         this.tipoAccesorio = tipoAccesorio;
         this.material = material;
     }
-    public Accesorio( int codProducto, String nomProd, double precioUnidad
-      ,String tipoAccesorio, String material) {
-        super(codProducto, nomProd, precioUnidad);
+    @Override
+    public Object[] getDatosTabla() {
+        return new Object[]{
+            getNumSerie(),
+            getNomProd(),
+            "Accesorio",
+            getPrecioUnitario(),
+            getStockActual(),
+            getEstadoStock(),
+            getTipoAccesorio() + " - " + getMaterial()
+        };
+    }
+    public Accesorio(String nomProd, double precio, Inventario inventario,
+            String tipoAccesorio, String material) {
+        super(nomProd, precio, inventario);
         this.tipoAccesorio = tipoAccesorio;
         this.material = material;
     }
-    public Accesorio( String nomProd, double precioUnidad
-     ,String tipoAccesorio, String material) {
-        super(nomProd, precioUnidad);
-        this.tipoAccesorio = tipoAccesorio;
-        this.material = material;
-    }
-
     public String getTipoAccesorio() {
         return tipoAccesorio;
     }

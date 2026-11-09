@@ -38,7 +38,7 @@ public class FacturaProducto {
     {
         this.cantidad = cantidad;
         if (producto != null) {
-            this.valorTotal = producto.getPrecioUnidad() * cantidad;
+            this.valorTotal = producto.getPrecioUnitario()* cantidad;
         }
     }
     public double getValorTotal() {

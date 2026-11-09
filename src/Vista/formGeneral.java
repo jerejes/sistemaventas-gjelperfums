@@ -192,6 +192,7 @@ private boolean menuAbierto = true; // true = menú abierto, false = menú cerra
         btnProductos.setForeground(new java.awt.Color(255, 255, 255));
         btnProductos.setText("Productos");
         btnProductos.setBorder(null);
+        btnProductos.addActionListener(this::btnProductosActionPerformed);
         jPanel13.add(btnProductos);
 
         btnCompra.setBackground(new java.awt.Color(31, 42, 55));
@@ -207,6 +208,7 @@ private boolean menuAbierto = true; // true = menú abierto, false = menú cerra
         btnVenta.setForeground(new java.awt.Color(255, 255, 255));
         btnVenta.setText("Venta");
         btnVenta.setBorder(null);
+        btnVenta.addActionListener(this::btnVentaActionPerformed);
         jPanel13.add(btnVenta);
 
         btnInventario.setBackground(new java.awt.Color(31, 42, 55));
@@ -298,8 +300,16 @@ private boolean menuAbierto = true; // true = menú abierto, false = menú cerra
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
     private void btnCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraActionPerformed
-        mostrarPanel(new PanelCompr());
+        mostrarPanel(new PanelCompra());
     }//GEN-LAST:event_btnCompraActionPerformed
+
+    private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
+        mostrarPanel(new PanelProd());
+    }//GEN-LAST:event_btnProductosActionPerformed
+
+    private void btnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaActionPerformed
+        mostrarPanel(new PanelVen());
+    }//GEN-LAST:event_btnVentaActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

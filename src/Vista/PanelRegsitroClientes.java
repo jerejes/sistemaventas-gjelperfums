@@ -1,8 +1,13 @@
 package Vista;
 import javax.swing.JOptionPane;
-        
+import dao.ClienteDAO;
+import modelo.Cliente;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;       
 public class PanelRegsitroClientes extends javax.swing.JPanel {
-    public boolean cerra;
+    private final ClienteDAO daocli = new ClienteDAO();
     public PanelRegsitroClientes() {
         initComponents();
         btnGuardarCliente.setIcon(icono("/imagenes/finalizarcompra.png", 20));
@@ -34,9 +39,9 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         txtCorreoCliente = new javax.swing.JTextField();
-        txtDniCliente1 = new javax.swing.JTextField();
+        txttelf = new javax.swing.JTextField();
         txtFecNacCliente = new com.toedter.calendar.JDateChooser();
-        txtDniCliente2 = new javax.swing.JTextField();
+        txtDniCliente = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
@@ -103,6 +108,7 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
         btnGuardarCliente.setFont(new java.awt.Font("Square721 Cn BT", 1, 14)); // NOI18N
         btnGuardarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarCliente.setText("Guardar");
+        btnGuardarCliente.addActionListener(this::btnGuardarClienteActionPerformed);
         jPanel1.add(btnGuardarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 552, 150, 50));
 
         btnLimpiarCliente.setBackground(new java.awt.Color(255, 51, 51));
@@ -129,22 +135,22 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
         txtCorreoCliente.setPreferredSize(new java.awt.Dimension(44, 18));
         jPanel1.add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 381, 210, 45));
 
-        txtDniCliente1.setBackground(new java.awt.Color(255, 255, 255));
-        txtDniCliente1.setForeground(new java.awt.Color(40, 40, 40));
-        txtDniCliente1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 3, true));
-        txtDniCliente1.setPreferredSize(new java.awt.Dimension(44, 18));
-        jPanel1.add(txtDniCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 168, 150, 44));
+        txttelf.setBackground(new java.awt.Color(255, 255, 255));
+        txttelf.setForeground(new java.awt.Color(40, 40, 40));
+        txttelf.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 3, true));
+        txttelf.setPreferredSize(new java.awt.Dimension(44, 18));
+        jPanel1.add(txttelf, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 168, 150, 44));
 
         txtFecNacCliente.setBackground(new java.awt.Color(0, 102, 102));
         txtFecNacCliente.setForeground(new java.awt.Color(255, 255, 255));
         txtFecNacCliente.setOpaque(false);
         jPanel1.add(txtFecNacCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 381, 122, 45));
 
-        txtDniCliente2.setBackground(new java.awt.Color(255, 255, 255));
-        txtDniCliente2.setForeground(new java.awt.Color(40, 40, 40));
-        txtDniCliente2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 3, true));
-        txtDniCliente2.setPreferredSize(new java.awt.Dimension(44, 18));
-        jPanel1.add(txtDniCliente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 168, 178, 44));
+        txtDniCliente.setBackground(new java.awt.Color(255, 255, 255));
+        txtDniCliente.setForeground(new java.awt.Color(40, 40, 40));
+        txtDniCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 3, true));
+        txtDniCliente.setPreferredSize(new java.awt.Dimension(44, 18));
+        jPanel1.add(txtDniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 168, 178, 44));
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -156,6 +162,45 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
             setVisible(false);
         }
     }//GEN-LAST:event_btnCerrarClienteActionPerformed
+
+    private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
+        String dni = txtDniCliente.getText().trim();
+        String correo = txtCorreoCliente.getText().trim();
+        String nombre = txtNombreCliente.getText().trim();
+        String apellido = txtApellidoCliente.getText().trim();
+        String telefono = txttelf.getText().trim();
+        String direccion = txtDireccionCliente.getText().trim();
+
+        if (dni.isBlank() || correo.isBlank()
+                || nombre.isBlank() || apellido.isBlank()) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Complete todos los campos obligatorios.");
+            return;
+        }
+        if (!dni.matches("[0-9]{8}")) {
+            JOptionPane.showMessageDialog(this,
+                    "El DNI debe tener 9 dígitos.");
+            return;
+        }
+        if (txtFecNacCliente.getDate() == null) {
+            JOptionPane.showMessageDialog(this,
+                    "Seleccione la fecha de nacimiento.");
+            return;
+        }
+        LocalDate fecha = txtFecNacCliente.getDate().toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+        Cliente cli = new Cliente( dni,correo,nombre,apellido, telefono,direccion,fecha, "ACTIVO");
+        try {
+            daocli.insertarCliente(cli);
+            JOptionPane.showMessageDialog(this,
+                    "Cliente registrado correctamente.");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this,
+                    "Error al registrar cliente: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarCliente;
@@ -173,9 +218,9 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
     private javax.swing.JTextField txtApellidoCliente;
     private javax.swing.JTextField txtCorreoCliente;
     private javax.swing.JTextField txtDireccionCliente;
-    private javax.swing.JTextField txtDniCliente1;
-    private javax.swing.JTextField txtDniCliente2;
+    private javax.swing.JTextField txtDniCliente;
     private com.toedter.calendar.JDateChooser txtFecNacCliente;
     private javax.swing.JTextField txtNombreCliente;
+    private javax.swing.JTextField txttelf;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,27 +1,28 @@
 package modelo;
-import java.time.LocalDate;
-import java.util.ArrayList;
 public class Inventario {
-    private int codInventario;   
-    private LocalDate fechaRegistro;
-    private ArrayList<InventarioProducto> listaStock = new ArrayList<>();
-    public Inventario() {}
-    public Inventario(int codInventario, LocalDate fechaRegistro)
-    {
+    private int codInventario;
+    private String nombre;
+
+    public Inventario() {
+    }
+    public Inventario(int codInventario, String nombre) {
         this.codInventario = codInventario;
-        this.fechaRegistro = fechaRegistro;
+        this.nombre = nombre;
     }
-    public Inventario(LocalDate fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
+    public Inventario(String nombre) {
+        this.nombre = nombre;
     }
-    public ArrayList<InventarioProducto> getListaStock() {
-        return listaStock;
+    public int getCodInventario() {
+        return codInventario;
     }
-    public void setListaStock(ArrayList<InventarioProducto> listaStock) {
-        this.listaStock = listaStock;
+    public void setCodInventario(int codInventario) {
+        this.codInventario = codInventario;
     }
-    public int getCodInventario() { return codInventario; }
-    public void setCodInventario(int codInventario) { this.codInventario = codInventario; }
-    public LocalDate getFechaRegistro() { return fechaRegistro; }
-    public void setFechaRegistro(LocalDate fechaRegistro) { this.fechaRegistro = fechaRegistro; }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
 }

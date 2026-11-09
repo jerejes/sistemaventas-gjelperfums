@@ -40,7 +40,7 @@ public class panelventa extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Gloucester MT Extra Condensed", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("VENTAS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         btnAgregarBPago.setBackground(new java.awt.Color(51, 204, 0));
         btnAgregarBPago.setFont(new java.awt.Font("Serif", 1, 15)); // NOI18N

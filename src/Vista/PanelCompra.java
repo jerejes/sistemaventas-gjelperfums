@@ -1,6 +1,6 @@
 package Vista;
-public class PanelCompr extends javax.swing.JPanel {
-    public PanelCompr() {
+public class PanelCompra extends javax.swing.JPanel {
+    public PanelCompra() {
         initComponents();
         btnEliminarCliente.setIcon(icono("/imagenes/trash.png", 20));
         btnBuscarCompra.setIcon(icono("/imagenes/search.png", 20));
@@ -151,13 +151,11 @@ public class PanelCompr extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btnNuevaCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaCompraActionPerformed
-       panelRegistroCompra P = new panelRegistroCompra();
-       P.setTitle("Compra");
-       P.setModal(true);
-       P.setResizable(false);
-       P.setSize(820, 580);
-       P.setLocationRelativeTo(this);
-       P.setVisible(true);
+        java.awt.Frame parent = (java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(this);
+        panelRegistroCompra P = new panelRegistroCompra(parent, true);
+        P.setSize(820, 580);
+        P.setLocationRelativeTo(this);
+        P.setVisible(true);
     }//GEN-LAST:event_btnNuevaCompraActionPerformed
 
     private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed

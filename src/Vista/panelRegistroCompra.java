@@ -1,12 +1,17 @@
 package Vista;
-public class panelRegistroCompra extends javax.swing.JDialog {
-    public panelRegistroCompra() {
+
+import javax.swing.JOptionPane;
+
+public class panelRegistroCompra extends modelo.JdialogRedondeado {
+    public panelRegistroCompra(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         btnagregarProducto.setIcon(icono("/imagenes/carritoagregar.png", 20));
         btnEliminarComPro.setIcon(icono("/imagenes/trash.png", 20));
         btnlimpiar.setIcon(icono("/imagenes/Limpiar.png", 20));
         btnmodificar.setIcon(icono("/imagenes/edit.png", 20));
         btnfinalizarcompra.setIcon(icono("/imagenes/finalizarcompra.png", 20));
+        btnsalir.setIcon(icono("/imagenes/square-x (1).png", 30));
 
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -34,6 +39,7 @@ public class panelRegistroCompra extends javax.swing.JDialog {
         btnlimpiar = new javax.swing.JButton();
         btnagregarProducto = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        btnsalir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -150,8 +156,21 @@ public class panelRegistroCompra extends javax.swing.JDialog {
         jLabel4.setText("TOTAL:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, 20));
 
+        btnsalir.setBackground(new java.awt.Color(255, 51, 51));
+        btnsalir.addActionListener(this::btnsalirActionPerformed);
+        jPanel2.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 0, 30, 30));
+
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
+        int r = JOptionPane.showConfirmDialog(this,
+                "¿Cerrar sin guardar la compra?", "Confirmar",
+                JOptionPane.YES_NO_OPTION);
+        if (r == JOptionPane.YES_OPTION) {
+            dispose();
+        }
+    }//GEN-LAST:event_btnsalirActionPerformed
     public javax.swing.ImageIcon icono(String ruta, int tam) {
         java.awt.Image img = new javax.swing.ImageIcon(getClass().getResource(ruta)).getImage();
         return new javax.swing.ImageIcon(img.getScaledInstance(tam, tam, java.awt.Image.SCALE_SMOOTH));
@@ -163,6 +182,7 @@ public class panelRegistroCompra extends javax.swing.JDialog {
     private javax.swing.JButton btnfinalizarcompra;
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JButton btnmodificar;
+    private javax.swing.JButton btnsalir;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;

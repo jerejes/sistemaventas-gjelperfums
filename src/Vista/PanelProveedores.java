@@ -1,11 +1,15 @@
 package Vista;
 
+import dao.ProveedorDAO;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import javax.swing.table.DefaultTableModel;
 
 public class PanelProveedores extends javax.swing.JPanel {
+    public final ProveedorDAO daoprov = new ProveedorDAO();
     public PanelProveedores() {
         initComponents();
+        tblmostrardatosprov.setModel(daoprov.buscarProveedor(""));
         panelRegistroProveedores1.setVisible(false);
         panelRegistroProveedores1.addComponentListener(new ComponentAdapter() 
         {
@@ -25,6 +29,11 @@ public class PanelProveedores extends javax.swing.JPanel {
 
 
     }
+      public void actualizarTabla() {
+        txtbuscar.setText("");
+        tblmostrardatosprov.setModel(daoprov.buscarProveedor(""));
+    }
+    
     private javax.swing.ImageIcon icono(String ruta, int tam) {
         java.awt.Image img = new javax.swing.ImageIcon(getClass().getResource(ruta)).getImage();
         return new javax.swing.ImageIcon(img.getScaledInstance(tam, tam, java.awt.Image.SCALE_SMOOTH));
@@ -34,7 +43,7 @@ public class PanelProveedores extends javax.swing.JPanel {
 
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblmostrardatosprov = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -42,7 +51,7 @@ public class PanelProveedores extends javax.swing.JPanel {
         btnbuscarprov = new javax.swing.JButton();
         btnNuevoProv = new javax.swing.JButton();
         btnModificarProveedor = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        txtbuscar = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -63,7 +72,7 @@ public class PanelProveedores extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblmostrardatosprov.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -74,7 +83,7 @@ public class PanelProveedores extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblmostrardatosprov);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -97,6 +106,7 @@ public class PanelProveedores extends javax.swing.JPanel {
         btnbuscarprov.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         btnbuscarprov.setForeground(new java.awt.Color(255, 255, 255));
         btnbuscarprov.setText("Buscar ");
+        btnbuscarprov.addActionListener(this::btnbuscarprovActionPerformed);
 
         btnNuevoProv.setBackground(new java.awt.Color(0, 102, 102));
         btnNuevoProv.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
@@ -124,18 +134,17 @@ public class PanelProveedores extends javax.swing.JPanel {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                    .addComponent(btnbuscarprov, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
-                .addContainerGap())
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(btnNuevoProv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnModificarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                        .addComponent(btnbuscarprov, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+                    .addComponent(btnNuevoProv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jPanel4.add(jPanel5, java.awt.BorderLayout.LINE_END);
-        jPanel4.add(jTextField2, java.awt.BorderLayout.CENTER);
+        jPanel4.add(txtbuscar, java.awt.BorderLayout.CENTER);
 
         jLabel4.setFont(new java.awt.Font("Square721 Cn BT", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -191,13 +200,16 @@ public class PanelProveedores extends javax.swing.JPanel {
         add(jPanel7, java.awt.BorderLayout.LINE_START);
         add(panelRegistroProveedores1, java.awt.BorderLayout.LINE_END);
     }// </editor-fold>//GEN-END:initComponents
-
     private void btnNuevoProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProvActionPerformed
         panelRegistroProveedores1.setVisible(true);
         btnNuevoProv.setVisible(false);
         btnEliminarProveedor.setVisible(false);
         btnModificarProveedor.setVisible(false);
     }//GEN-LAST:event_btnNuevoProvActionPerformed
+
+    private void btnbuscarprovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarprovActionPerformed
+        tblmostrardatosprov.setModel(daoprov.buscarProveedor(txtbuscar.getText()));
+    }//GEN-LAST:event_btnbuscarprovActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -215,8 +227,8 @@ public class PanelProveedores extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
     private Vista.panelRegistroProveedores panelRegistroProveedores1;
+    private javax.swing.JTable tblmostrardatosprov;
+    private javax.swing.JTextField txtbuscar;
     // End of variables declaration//GEN-END:variables
 }

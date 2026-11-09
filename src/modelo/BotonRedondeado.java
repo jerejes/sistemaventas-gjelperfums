@@ -3,7 +3,7 @@ import javax.swing.JButton;
 import java.awt.*;
 
 public class BotonRedondeado extends JButton{
-      private int radio = 30;
+      private int radio = 70;
       public BotonRedondeado() 
       {
            setContentAreaFilled(false);

@@ -12,10 +12,8 @@ public class conexion {
 //       private static String url = "jdbc:sqlserver://localhost/";
 //       private static String bd= "bd_gjelperfums";
 //       private static String usuario= " ";
-       
-               
         String conexionUrl = "jdbc:sqlserver://localhost:1433;"
-                + "databaseName=bd_gjelperfums;"
+                + "databaseName=BD_GJELPERFUMS;"
                 + "user=sa;"
                 + "password=database;"
                 + "loginTimeout=30;"
