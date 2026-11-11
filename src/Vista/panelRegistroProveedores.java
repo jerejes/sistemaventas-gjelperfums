@@ -141,6 +141,7 @@ public class panelRegistroProveedores extends javax.swing.JPanel {
                     JOptionPane.YES_NO_OPTION);
             if (x == JOptionPane.YES_OPTION) {
                 setVisible(false);
+                limpiarCampos();
             }
     }//GEN-LAST:event_btnCerrarproveedorActionPerformed
     public void limpiarCampos() {
@@ -152,21 +153,17 @@ public class panelRegistroProveedores extends javax.swing.JPanel {
         txtdistrito.setText("");
     }
     private void btnguardarproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarproveActionPerformed
-        String nombre = txtNomEmpresa.getText();
-        String ruc = txtRucProv.getText();
-        String telefono =txttelef.getText();
-        String calle = txtcalle.getText();
-        String avenida = txtavenida.getText();
-        String distrito = txtdistrito.getText();
+        String nombre = txtNomEmpresa.getText().trim();
+        String ruc = txtRucProv.getText().trim();
+        String telefono = txttelef.getText().trim();
+        String calle = txtcalle.getText().trim();
+        String avenida = txtavenida.getText().trim();
+        String distrito = txtdistrito.getText().trim();
         if (nombre.isBlank() || ruc.isBlank() || telefono.isBlank()
-                || calle.isBlank() || avenida.isBlank() || distrito.isBlank()) {
-
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Complete todos los campos.",
-                    "Campos vacíos",
-                    JOptionPane.WARNING_MESSAGE
-            );
+                || calle.isBlank() || avenida.isBlank() || distrito.isBlank()) 
+        {
+            JOptionPane.showMessageDialog(this,"Complete todos los campos.",
+                    "Campos vacíos",JOptionPane.WARNING_MESSAGE);
             return;
         }
         if (!ruc.matches("\\d{11}")) 
@@ -184,23 +181,45 @@ public class panelRegistroProveedores extends javax.swing.JPanel {
             return;
         }
         Proveedor prov = new Proveedor(nombre, ruc, telefono, calle, avenida, distrito, "ACTIVO");
-        try {
-            daoprov.insertarproveedor(prov);
-            limpiarCampos();
-            JOptionPane.showMessageDialog(
-                    this, "Proveedor registrado correctamente."
-            );
-            PanelProveedores panel = (PanelProveedores) 
-                    javax.swing.SwingUtilities.getAncestorOfClass(
-                    PanelProveedores.class, this );
-            if (panel != null) {
-                panel.actualizarTabla();
+        String existente =daoprov.existeprov(prov);
+        if (existente.equals("ruc"))
+        {
+            JOptionPane.showMessageDialog(null,"Error Ruc existente ","Campo repetido"
+            ,JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        else if (existente.equals("telef"))
+        {
+            JOptionPane.showMessageDialog(null, "Error Telefono existente ",
+                    "Campo repetido",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        else if (existente.equals("nombre")) 
+        {
+            JOptionPane.showMessageDialog(null, "Error El nombre de la Empresa ya existe"
+            ,"Campo repetido" ,JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        else
+        {
+            try {
+                daoprov.insertarproveedor(prov);
+                limpiarCampos();
+                JOptionPane.showMessageDialog(
+                        this, "Proveedor registrado correctamente."
+                );
+                PanelProveedores panel = (PanelProveedores) 
+                        javax.swing.SwingUtilities.getAncestorOfClass(
+                        PanelProveedores.class, this );
+                if (panel != null) {
+                    panel.actualizarTabla();
+                }
+            } catch (SQLException e) 
+            {
+                JOptionPane.showMessageDialog(this, "Error al registrar proveedor: " + e.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE
+                );
             }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(
-                    this, "Error al registrar proveedor: " + e.getMessage(),
-                    "Error", JOptionPane.ERROR_MESSAGE
-            );
         }
     }//GEN-LAST:event_btnguardarproveActionPerformed
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed

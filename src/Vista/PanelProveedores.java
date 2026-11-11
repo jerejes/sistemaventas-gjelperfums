@@ -26,8 +26,6 @@ public class PanelProveedores extends javax.swing.JPanel {
         btnModificarProveedor.setIcon(icono("/imagenes/edit.png", 20));
             btnNuevoProv.setIcon(icono("/imagenes/plus.png", 20));
         btnEliminarProveedor.setIcon(icono("/imagenes/trash.png", 20));
-
-
     }
     public void actualizarTabla() {
         txtbuscar.setText("");

@@ -13,9 +13,7 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
         btnGuardarCliente.setIcon(icono("/imagenes/finalizarcompra.png", 20));
         btnLimpiarCliente.setIcon(icono("/imagenes/Limpiar.png", 20));
         btnCerrarCliente.setIcon(icono("/imagenes/logout.png", 20));
-
     }
-    
     public javax.swing.ImageIcon icono(String ruta, int tam) {
         java.awt.Image img = new javax.swing.ImageIcon(getClass().getResource(ruta)).getImage();
         return new javax.swing.ImageIcon(img.getScaledInstance(tam, tam, java.awt.Image.SCALE_SMOOTH));
@@ -111,11 +109,12 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
         btnGuardarCliente.addActionListener(this::btnGuardarClienteActionPerformed);
         jPanel1.add(btnGuardarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 552, 150, 50));
 
-        btnLimpiarCliente.setBackground(new java.awt.Color(255, 51, 51));
+        btnLimpiarCliente.setBackground(new java.awt.Color(0, 102, 204));
         btnLimpiarCliente.setFont(new java.awt.Font("Square721 Cn BT", 1, 14)); // NOI18N
         btnLimpiarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiarCliente.setText("Limpiar ");
         btnLimpiarCliente.setToolTipText("");
+        btnLimpiarCliente.addActionListener(this::btnLimpiarClienteActionPerformed);
         jPanel1.add(btnLimpiarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 552, 140, 50));
 
         jLabel13.setFont(new java.awt.Font("Square721 Cn BT", 1, 13)); // NOI18N
@@ -160,9 +159,19 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
                 JOptionPane.YES_NO_OPTION);
         if (x == JOptionPane.YES_OPTION) {
             setVisible(false);
+            limpiarCampos();
         }
     }//GEN-LAST:event_btnCerrarClienteActionPerformed
-
+    private void limpiarCampos() {
+        txtNombreCliente.setText("");
+        txtApellidoCliente.setText("");
+        txtDniCliente.setText("");
+        txttelf.setText("");
+        txtCorreoCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtFecNacCliente.setDate(null);   
+        txtNombreCliente.requestFocus(); 
+    }
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
         String dni = txtDniCliente.getText().trim();
         String correo = txtCorreoCliente.getText().trim();
@@ -170,42 +179,71 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
         String apellido = txtApellidoCliente.getText().trim();
         String telefono = txttelf.getText().trim();
         String direccion = txtDireccionCliente.getText().trim();
+        
+        if(dni.isBlank() || correo.isBlank() ||  nombre.isBlank() || apellido.isBlank()
+           || telefono.isBlank() || direccion.isBlank() ||txtFecNacCliente.getDate()==null)
+        {
+            JOptionPane.showMessageDialog(null,"Llene todos los datos");
+            return;
+        }
+        if ( !telefono.matches("\\d{9}"))
+        {
+            JOptionPane.showMessageDialog(null,"Corrija el número de teléfono debe tener 9 dígitos.");
+            return;
+        }
+        if (!dni.matches("\\d{8}")) 
+        {
+         JOptionPane.showMessageDialog(this, "El DNI debe contener exactamente 8 dígitos numéricos.");
+         return;
+         }
+        LocalDate fecha = txtFecNacCliente.getDate().toInstant().atZone(ZoneId.systemDefault())
+                                         .toLocalDate();
+        Cliente cli = new Cliente( dni,correo,nombre,apellido, telefono,
+                                                        direccion,fecha, "ACTIVO");
+        String existe = daocli.existe(cli);
+        if (existe.equals("dni"))
+        {
+            JOptionPane.showMessageDialog(null,"Error el Dni ya existe");
+            return;
+        }
+        else if (existe.equals("telefono"))
+        {
+            JOptionPane.showMessageDialog(null, "Error el Telefono ya existe");
+            return;
+        }
+        else if (existe.equals("correo"))
+        {
+            JOptionPane.showMessageDialog(null, "Error el Correo ya existe");
+            return;
+        }
+        else 
+        {
+            try {
 
-        if (dni.isBlank() || correo.isBlank()
-                || nombre.isBlank() || apellido.isBlank()) {
-
-            JOptionPane.showMessageDialog(this,
-                    "Complete todos los campos obligatorios.");
-            return;
-        }
-        if (!dni.matches("[0-9]{8}")) {
-            JOptionPane.showMessageDialog(this,
-                    "El DNI debe tener 9 dígitos.");
-            return;
-        }
-        if (txtFecNacCliente.getDate() == null) {
-            JOptionPane.showMessageDialog(this,
-                    "Seleccione la fecha de nacimiento.");
-            return;
-        }
-        LocalDate fecha = txtFecNacCliente.getDate().toInstant()
-                .atZone(ZoneId.systemDefault())
-                .toLocalDate();
-        Cliente cli = new Cliente( dni,correo,nombre,apellido, telefono,direccion,fecha, "ACTIVO");
-        try {
-            daocli.insertarCliente(cli);
-            JOptionPane.showMessageDialog(this,
-                    "Cliente registrado correctamente.");
-            PanelCliente panel = (PanelCliente) javax.swing.SwingUtilities.getAncestorOfClass(
-                    PanelCliente.class, this);
-            if (panel != null) {
-                panel.actualizarTabla();
+                daocli.insertarCliente(cli);
+                JOptionPane.showMessageDialog(this,
+                        "Cliente registrado correctamente.");
+                limpiarCampos();
+                PanelCliente panel = (PanelCliente) javax.swing.SwingUtilities.getAncestorOfClass(
+                        PanelCliente.class, this);
+                if (panel != null) {
+                    panel.actualizarTabla();
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this,
+                        "Error al registrar cliente: " + e.getMessage());
             }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this,
-                    "Error al registrar cliente: " + e.getMessage());
         }
+        
     }//GEN-LAST:event_btnGuardarClienteActionPerformed
+
+    private void btnLimpiarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarClienteActionPerformed
+        int limpiar = JOptionPane.showConfirmDialog(this, "¿Seguro que desea Limpiar?", "Limpiar",
+                JOptionPane.YES_NO_OPTION);
+        if (limpiar == JOptionPane.YES_OPTION) {
+            limpiarCampos();
+        }
+    }//GEN-LAST:event_btnLimpiarClienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarCliente;

@@ -9,6 +9,7 @@ import modelo.Proveedor;
 import conexionSqlServer.conexion;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import modelo.Empleado;
 public class ProveedorDAO {
     private String siguienteSerie(Connection cn) throws SQLException {
         try (Statement st = cn.createStatement(); 
@@ -38,6 +39,44 @@ public class ProveedorDAO {
                 ps.executeUpdate();
          }
         }
+    }
+    public String existeprov(Proveedor prov)
+    {
+        String sql = "SELECT ruc, nom_empresa , telefono FROM COMPRAS.PROVEEDOR "
+                + "WHERE ruc =? OR nom_empresa = ? OR telefono = ? ";
+        try(Connection cn = conexion.getConnection();
+        PreparedStatement ps  = cn.prepareStatement(sql))
+        {
+          ps.setString(1, prov.getRuc());
+          ps.setString(2, prov.getNomEmpresa());
+          ps.setString(3, prov.getTelefono());
+          try(ResultSet rs = ps.executeQuery())
+          {
+              if (rs.next())
+              {
+                  String rucbd = rs.getString("ruc");
+                  String telefbd = rs.getString("telefono");
+                  String nombd = rs.getString("nom_empresa");
+                  if(rucbd.equalsIgnoreCase(prov.getRuc()))
+                  {
+                      return "ruc";
+                  }
+                  else if (telefbd.equalsIgnoreCase(prov.getTelefono()))
+                  {
+                      return "telef";
+                  }
+                  else if (nombd.equalsIgnoreCase(prov.getNomEmpresa()))
+                  {
+                      return "nombre";
+                  }
+              }
+          }
+        }
+        catch(SQLException x)
+        {
+            JOptionPane.showMessageDialog(null,"Error al buscar un proveedor existente"+x);
+        }
+        return "vacio";
     }
     public DefaultTableModel buscarProveedor(String texto) 
     {

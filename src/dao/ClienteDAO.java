@@ -1,5 +1,4 @@
 package dao;
-
 import conexionSqlServer.conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -40,7 +39,40 @@ public class ClienteDAO {
             }
         }
     }
-    public DefaultTableModel buscarCliente(String texto) {
+    public String existe(Cliente cli)
+    {
+    String sql = "SELECT dni, telefono, correo FROM VENTAS.CLIENTE WHERE correo=? OR dni=? OR telefono=?";
+    
+    try (Connection cn = conexion.getConnection();
+         PreparedStatement ps = cn.prepareStatement(sql)) {
+         
+        ps.setString(1, cli.getCorreo());
+        ps.setString(2, cli.getDni());
+        ps.setString(3, cli.getTelefono());
+        
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                String dniBD = rs.getString("dni");
+                String telfBD = rs.getString("telefono");
+                String correoBD = rs.getString("correo");
+                if (cli.getDni().equals(dniBD)) {
+                    return "dni";
+                }
+                if (cli.getTelefono().equals(telfBD)) {
+                    return "telefono";
+                }
+                if (cli.getCorreo().equalsIgnoreCase(correoBD)) {
+                    return "correo";
+                }
+            }
+        }
+    } catch (SQLException x) {
+        JOptionPane.showMessageDialog(null, "Error al validar los datos duplicados: " + x.getMessage());
+    }
+    return "ninguno"; 
+    }
+    public DefaultTableModel buscarCliente(String texto) 
+    {
         String[] titulos = {"N° Serie", "DNI", "Correo", "Nombre", 
             "Apellido", "Teléfono", "Dirección", "Fecha de nacimiento", "Estado"};
         
@@ -87,3 +119,4 @@ public class ClienteDAO {
         return modelo;
     }
 }
+
