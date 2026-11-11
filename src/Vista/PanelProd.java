@@ -3,13 +3,14 @@ package Vista;
 import dao.ProductoDAO;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import render.EstiloTabla;
 
 public class PanelProd extends javax.swing.JPanel {
     private final ProductoDAO dao = new ProductoDAO();
     
     public PanelProd() {
         initComponents();
-        tblProductos.setModel(dao.buscarProducto(""));
+        actualizarTabla();
         panelRegistroProductos1.setVisible(false);
         btnbuscarprod.setIcon(icono("/imagenes/search.png", 20));
         btnagregarprod.setIcon(icono("/imagenes/plus.png", 20));
@@ -24,6 +25,11 @@ public class PanelProd extends javax.swing.JPanel {
             }
         });
 
+    }
+    public void actualizarTabla() {
+        txtbuscarprod.setText("");
+        tblProductos.setModel(dao.buscarProducto(""));
+        EstiloTabla.aplicar(tblProductos);
     }
     private javax.swing.ImageIcon icono(String ruta, int tam) {
         java.awt.Image img = new javax.swing.ImageIcon(getClass().getResource(ruta)).getImage();

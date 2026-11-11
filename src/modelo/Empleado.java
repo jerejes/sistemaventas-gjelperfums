@@ -2,37 +2,72 @@ package modelo;
 import java.time.LocalDate;
 public class Empleado extends Persona {
     private LocalDate fechaIngreso;
-    private Empleado supervisor;   
-    private double sueldoBase;
-    private String sistemaPension;
-    
+    private Empleado supervisor;
+    private String numserie;
+    private String cargo;
+    private String estado;
+
     public Empleado() {}
-    public Empleado( int codPersona, String dni, String correo, String nombre, 
-            String apellido, String telefono, String direccion, LocalDate fechaNac
-            ,LocalDate fechaIngreso, Empleado supervisor  ,double sueldobase , 
-            String sistemapension) {
+    public Empleado(int codPersona, String dni, String correo, String nombre,
+            String apellido, String telefono, String direccion, LocalDate fechaNac,
+            LocalDate fechaIngreso, Empleado supervisor,
+             String numserie, String cargo, String estado) {
         super(codPersona, dni, correo, nombre, apellido, telefono, direccion, fechaNac);
         this.fechaIngreso = fechaIngreso;
         this.supervisor = supervisor;
-        this.sueldoBase = sueldobase;
-        this.sistemaPension = sistemapension;
+        this.numserie = numserie;
+        this.cargo = cargo;
+        this.estado = estado;
     }
-    public Empleado( String dni, String correo, String nombre, String apellido, String telefono, String direccion, 
-            LocalDate fechaNac,LocalDate fechaIngreso, Empleado supervisor,
-            double sueldobase , String sistemapension) {
+    public Empleado(String dni, String correo, String nombre, String apellido,
+            String telefono, String direccion, LocalDate fechaNac,
+            LocalDate fechaIngreso, Empleado supervisor,
+            String cargo, String estado)
+    {
         super(dni, correo, nombre, apellido, telefono, direccion, fechaNac);
         this.fechaIngreso = fechaIngreso;
         this.supervisor = supervisor;
-        this.sueldoBase = sueldobase;
-        this.sistemaPension = sistemapension;
+        this.numserie = numserie;
+        this.cargo = cargo;
+        this.estado = estado;
     }
-
-    public double getSueldoBase() {return sueldoBase; }
-    public void setSueldoBase(double sueldoBase) {this.sueldoBase = sueldoBase; }
-
-    public String getSistemaPension() { return sistemaPension;}
-    public void setSistemaPension(String sistemaPension) {this.sistemaPension = sistemaPension;}
-    
+    @Override
+public String toString() {
+    return getNombre() + " " + getApellido();
+}
+    public Object[] mostrarDatos() {
+        return new Object[]{
+            getNumserie(),
+            getDni(),
+            getCorreo(),
+            getNombre(),
+            getApellido(),
+            getTelefono(),
+            getDireccion(),
+            getFechanac(),
+            getFechaIngreso(),
+            getCargo(),
+            getEstado()
+        };
+    }
+    public String getNumserie() {
+        return numserie;
+    }
+    public void setNumserie(String numserie) {
+        this.numserie = numserie;
+    }
+    public String getCargo() {
+        return cargo;
+    }
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+    public String getEstado() {
+        return estado;
+    }
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
     public LocalDate getFechaIngreso() {return fechaIngreso;}
     public void setFechaIngreso(LocalDate fechaIngreso) {this.fechaIngreso = fechaIngreso;}
     

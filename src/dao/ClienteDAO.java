@@ -14,13 +14,13 @@ import modelo.Proveedor;
 public class ClienteDAO {
     private String siguienteSerie(Connection cn) throws SQLException {
         try (Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT COUNT(*) + 1 FROM ventas.CLIENTE")) {
+            ResultSet rs = st.executeQuery("SELECT COUNT(*) + 1 FROM VENTAS.CLIENTE")) {
             rs.next();
             return String.format("CLI%05d", rs.getInt(1));
         }
     }
     public void insertarCliente(Cliente cli) throws SQLException {
-        String sql = "INSERT INTO ventas.CLIENTE "
+        String sql = "INSERT INTO VENTAS.CLIENTE "
                 + "(num_serie, dni, correo, fecha_nac, nombre, apellido, "
                 + "telefono, direccion, estado) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -46,13 +46,13 @@ public class ClienteDAO {
         
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
         
-        String sql = "SELECT * FROM ventas.CLIENTE";
+        String sql = "SELECT * FROM VENTAS.CLIENTE ";
         if (texto != null && !texto.isBlank()) {
             sql += " WHERE num_serie LIKE ? "
                     + "OR nombre LIKE ? "
                     + "OR dni LIKE ? ";
         }
-        sql += " ORDER BY num_serie";
+        sql += " ORDER BY cod_cliente";
         try (Connection cn = conexion.getConnection(); 
                 PreparedStatement ps = cn.prepareStatement(sql)) {
 

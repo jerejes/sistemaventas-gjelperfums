@@ -1,12 +1,13 @@
 package Vista;
 
 import dao.ClienteDAO;
+import render.EstiloTabla;
 
 public class PanelCliente extends javax.swing.JPanel {
     public final ClienteDAO daocli = new ClienteDAO();
     public PanelCliente() {
         initComponents();
-        tblmostrarclientes.setModel(daocli.buscarCliente(""));
+        actualizarTabla();
         panelRegsitroClientes2.setVisible(false);
         panelRegsitroClientes2.addComponentListener(new java.awt.event.ComponentAdapter() {
         @Override
@@ -22,6 +23,13 @@ public class PanelCliente extends javax.swing.JPanel {
         btnmodificar.setIcon(icono("/imagenes/edit.png", 20));
 
     }
+    public void actualizarTabla() {
+        txtbuscarcliente.setText("");
+        tblmostrarclientes.setModel(daocli.buscarCliente(""));
+        EstiloTabla.aplicar(tblmostrarclientes);
+    }
+
+
      public  javax.swing.ImageIcon icono(String ruta, int tam) 
     {
     java.awt.Image img = new javax.swing.ImageIcon(getClass().getResource(ruta)).getImage();
@@ -38,7 +46,7 @@ public class PanelCliente extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtbuscarcliente = new javax.swing.JTextField();
         btnbuscarCliente = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
         btnagregar = new javax.swing.JButton();
@@ -96,6 +104,7 @@ public class PanelCliente extends javax.swing.JPanel {
         btnbuscarCliente.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         btnbuscarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnbuscarCliente.setText("Buscar ");
+        btnbuscarCliente.addActionListener(this::btnbuscarClienteActionPerformed);
 
         btnmodificar.setBackground(new java.awt.Color(0, 153, 153));
         btnmodificar.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
@@ -117,7 +126,7 @@ public class PanelCliente extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtbuscarcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnbuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -136,7 +145,7 @@ public class PanelCliente extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtbuscarcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnbuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnagregar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -169,6 +178,11 @@ public class PanelCliente extends javax.swing.JPanel {
         btnmodificar.setVisible(false);
         btnagregar.setVisible(false);
     }//GEN-LAST:event_btnagregarActionPerformed
+
+    private void btnbuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarClienteActionPerformed
+        tblmostrarclientes.setModel(daocli.buscarCliente(txtbuscarcliente.getText()));
+    }//GEN-LAST:event_btnbuscarClienteActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnagregar;
@@ -181,8 +195,8 @@ public class PanelCliente extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private Vista.PanelRegsitroClientes panelRegsitroClientes2;
     private javax.swing.JTable tblmostrarclientes;
+    private javax.swing.JTextField txtbuscarcliente;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 public class ProductoDAO 
 {
     private static final String BASE_SQL =
-            "SELECT * FROM productos.vw_producto ";
+            "SELECT * FROM catalogo.VW_PRODUCTO ";
 
     public DefaultTableModel buscarProducto(String texto) {
 
@@ -81,7 +81,7 @@ public class ProductoDAO
     }
    private String siguienteSerie(Connection cn) throws SQLException {
         try (Statement st = cn.createStatement(); 
-                ResultSet rs = st.executeQuery("SELECT COUNT(*) + 1 FROM productos.PRODUCTO")) 
+                ResultSet rs = st.executeQuery("SELECT COUNT(*) + 1 FROM catalogo.PRODUCTO")) 
         {
             rs.next();
             return String.format("PRO%05d", rs.getInt(1));
@@ -123,7 +123,7 @@ public class ProductoDAO
   }
     private int insertarbase (Connection cn , Producto p) throws SQLException
    {
-        String sql = "INSERT INTO productos.PRODUCTO "
+        String sql = "INSERT INTO catalogo.PRODUCTO "
                 + "(num_serie, nom_prod, precio_unidad, stock_actual, cod_inventario) VALUES (?, ?, ?, ?, ?)";
        try (PreparedStatement ps = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
            ps.setString(1, p.getNumSerie());
@@ -140,7 +140,7 @@ public class ProductoDAO
        }
       }
     private void insertarPerfume(Connection cn, int cod, Perfume p) throws SQLException {
-        String sql = "INSERT INTO productos.PERFUME VALUES (?, ?, ?)";
+        String sql = "INSERT INTO catalogo.PERFUME VALUES (?, ?, ?)";
         try (PreparedStatement ps = cn.prepareStatement(sql)) {
             ps.setInt(1, cod);
             ps.setString(2, p.getGenero());
@@ -149,7 +149,7 @@ public class ProductoDAO
         }
     }
     private void insertarAccesorio(Connection cn, int cod, Accesorio a) throws SQLException {
-        String sql = "INSERT INTO productos.ACCESORIO VALUES (?, ?, ?)";
+        String sql = "INSERT INTO catalogo.ACCESORIO VALUES (?, ?, ?)";
         try (PreparedStatement ps = cn.prepareStatement(sql)) {
             ps.setInt(1, cod);
             ps.setString(2, a.getTipoAccesorio());

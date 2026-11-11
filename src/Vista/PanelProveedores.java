@@ -4,12 +4,13 @@ import dao.ProveedorDAO;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import javax.swing.table.DefaultTableModel;
+import render.EstiloTabla;
 
 public class PanelProveedores extends javax.swing.JPanel {
     public final ProveedorDAO daoprov = new ProveedorDAO();
     public PanelProveedores() {
         initComponents();
-        tblmostrardatosprov.setModel(daoprov.buscarProveedor(""));
+        actualizarTabla();
         panelRegistroProveedores1.setVisible(false);
         panelRegistroProveedores1.addComponentListener(new ComponentAdapter() 
         {
@@ -20,7 +21,6 @@ public class PanelProveedores extends javax.swing.JPanel {
                     btnEliminarProveedor.setVisible(true);
                     btnModificarProveedor.setVisible(true);
                 }
-
          });
         btnbuscarprov.setIcon(icono("/imagenes/search.png", 20));
         btnModificarProveedor.setIcon(icono("/imagenes/edit.png", 20));
@@ -29,9 +29,10 @@ public class PanelProveedores extends javax.swing.JPanel {
 
 
     }
-      public void actualizarTabla() {
+    public void actualizarTabla() {
         txtbuscar.setText("");
         tblmostrardatosprov.setModel(daoprov.buscarProveedor(""));
+        EstiloTabla.aplicar(tblmostrardatosprov);
     }
     
     private javax.swing.ImageIcon icono(String ruta, int tam) {

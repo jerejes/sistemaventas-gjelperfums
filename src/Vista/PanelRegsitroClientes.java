@@ -196,6 +196,11 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
             daocli.insertarCliente(cli);
             JOptionPane.showMessageDialog(this,
                     "Cliente registrado correctamente.");
+            PanelCliente panel = (PanelCliente) javax.swing.SwingUtilities.getAncestorOfClass(
+                    PanelCliente.class, this);
+            if (panel != null) {
+                panel.actualizarTabla();
+            }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this,
                     "Error al registrar cliente: " + e.getMessage());

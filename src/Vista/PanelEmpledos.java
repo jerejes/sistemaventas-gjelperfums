@@ -1,29 +1,37 @@
 package Vista;
-
+import dao.EmpleadoDao;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 public class PanelEmpledos extends javax.swing.JPanel {
+    public final EmpleadoDao empdao= new EmpleadoDao();
     public PanelEmpledos() {
         initComponents();
-        panelRegistroEmpleados2.setVisible(false);
-        panelRegistroEmpleados2.addComponentListener(new ComponentAdapter() 
+        panelRegistroEmpleados1.setVisible(false);
+        panelRegistroEmpleados1.addComponentListener(new ComponentAdapter() 
         {
-            @Override
-            public void componentHidden(ComponentEvent e) {
-                btnEliminarEmpleado.setVisible(true);
-                btnmodificar.setVisible(true);
-                btnAgregarEmpleado.setVisible(true);
-            }
+           @Override
+           public void componentHidden(ComponentEvent e) {
+               btnEliminarEmpleado.setVisible(true);
+            btnmodificar.setVisible(true);
+            btnAgregarEmpleado.setVisible(true);
+          }
             
         });
-        btnbuscaremp.setIcon(icono("/imagenes/search.png", 20));
-        btnAgregarEmpleado.setIcon(icono("/imagenes/plus.png", 20));
-        btnEliminarEmpleado.setIcon(icono("/imagenes/trash.png", 20));
-        btnmodificar.setIcon(icono("/imagenes/edit.png", 20));
+    
+     btnbuscaremp.setIcon(icono("/imagenes/search.png", 20));
+     btnAgregarEmpleado.setIcon(icono("/imagenes/plus.png", 20));
+     btnEliminarEmpleado.setIcon(icono("/imagenes/trash.png", 20));
+     btnmodificar.setIcon(icono("/imagenes/edit.png", 20));
+      }
 
 
+       public void actualizarTabla() {
+        txtbuscar.setText("");
+        tblmostrarempleados.setModel(empdao.buscarEmpleado(""));
     }
+
+
     private javax.swing.ImageIcon icono(String ruta, int tam) {
         java.awt.Image img = new javax.swing.ImageIcon(getClass().getResource(ruta)).getImage();
         return new javax.swing.ImageIcon(img.getScaledInstance(tam, tam, java.awt.Image.SCALE_SMOOTH));
@@ -35,17 +43,17 @@ public class PanelEmpledos extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtbuscar = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         btnbuscaremp = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
         btnAgregarEmpleado = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblmostrarempleados = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
-        panelRegistroEmpleados2 = new Vista.PanelRegistroEmpleados();
         jPanel10 = new javax.swing.JPanel();
         btnEliminarEmpleado = new javax.swing.JButton();
+        panelRegistroEmpleados1 = new Vista.PanelRegistroEmpleados();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -74,7 +82,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 1025, Short.MAX_VALUE))
+                    .addComponent(txtbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 1025, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -83,7 +91,8 @@ public class PanelEmpledos extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel1.add(jPanel5, java.awt.BorderLayout.CENTER);
@@ -134,7 +143,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblmostrarempleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -145,7 +154,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblmostrarempleados);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -164,7 +173,6 @@ public class PanelEmpledos extends javax.swing.JPanel {
         );
 
         add(jPanel3, java.awt.BorderLayout.LINE_START);
-        add(panelRegistroEmpleados2, java.awt.BorderLayout.LINE_END);
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setPreferredSize(new java.awt.Dimension(1421, 50));
@@ -177,10 +185,11 @@ public class PanelEmpledos extends javax.swing.JPanel {
         jPanel10.add(btnEliminarEmpleado, java.awt.BorderLayout.LINE_END);
 
         add(jPanel10, java.awt.BorderLayout.PAGE_END);
+        add(panelRegistroEmpleados1, java.awt.BorderLayout.LINE_END);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
-        panelRegistroEmpleados2.setVisible(true);
+        panelRegistroEmpleados1.setVisible(true);
         btnAgregarEmpleado.setVisible(false);
         btnEliminarEmpleado.setVisible(false);
         btnmodificar.setVisible(false);
@@ -200,8 +209,8 @@ public class PanelEmpledos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private Vista.PanelRegistroEmpleados panelRegistroEmpleados2;
+    private Vista.PanelRegistroEmpleados panelRegistroEmpleados1;
+    private javax.swing.JTable tblmostrarempleados;
+    private javax.swing.JTextField txtbuscar;
     // End of variables declaration//GEN-END:variables
 }
