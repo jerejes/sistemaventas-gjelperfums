@@ -1,34 +1,39 @@
 package modelo;
+import dao.DetaleCompraDAO;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 public class Compra {
     private int codCompra;      
+    private String numserie;      
     private String tipoPago;
     private LocalDate fechaCompra;
     private String estadoCompra;
     private Proveedor proveedor;     
-    private Inventario inventario;     
-    private ArrayList <DetalleCompra>listaDetalleCompra= new ArrayList<>();     
-    
+    private ArrayList <compraproducto>listaDetalleCompra= new ArrayList<>();     
     public Compra() {}
-
-    public Compra(int codCompra, String tipoPago, LocalDate fechaCompra, String estadoCompra, Proveedor proveedor
-    ,Inventario inv) {
+    public Compra(int codCompra, String numserie,String tipoPago, LocalDate fechaCompra, String estadoCompra, Proveedor proveedor) 
+    {
         this.codCompra = codCompra;
         this.tipoPago = tipoPago;
         this.fechaCompra = fechaCompra;
         this.estadoCompra = estadoCompra;
         this.proveedor = proveedor;
-        this.inventario = inv;
     }
-    public Compra(String tipoPago, LocalDate fechaCompra, String estadoCompra, Proveedor proveedor,Inventario inv) {
+    public Compra(String tipoPago, LocalDate fechaCompra, String estadoCompra, Proveedor proveedor)
+    {
         this.tipoPago = tipoPago;
         this.fechaCompra = fechaCompra;
         this.estadoCompra = estadoCompra;
         this.proveedor = proveedor;
-        this.inventario = inv;
     }
-
+    
+    public String getNumserie() {
+        return numserie;
+    }
+    public void setNumserie(String numserie) {
+        this.numserie = numserie;
+    }
     public int getCodCompra() { return codCompra; }
     public void setCodCompra(int codCompra) { this.codCompra = codCompra; }
 
@@ -44,41 +49,47 @@ public class Compra {
     public Proveedor getProveedor() {return proveedor;}
     public void setProveedor(Proveedor proveedor) { this.proveedor = proveedor;}
 
-    public ArrayList<DetalleCompra> getListaDetalleCompra() {
+    public ArrayList<compraproducto> getListaDetalleCompra() {
         return listaDetalleCompra;
     }
-    public void setListaDetalleCompra(ArrayList<DetalleCompra> listaDetalleCompra) {
+    public void setListaDetalleCompra(ArrayList<compraproducto> listaDetalleCompra) {
         this.listaDetalleCompra = listaDetalleCompra;
     }
 
-    public Inventario getInventario() {
-        return inventario;
+    public DefaultTableModel mostrar ()
+    {
+       String [] titulos = {"N°serie","Nombre","Tipo","Precio","Cantidad","Sub Total"};
+       DefaultTableModel modelotabla = new DefaultTableModel(null,titulos);
+       for(compraproducto x : listaDetalleCompra)
+       {
+           modelotabla.addRow(x.DatosTabla());
+       }
+       return modelotabla;
     }
-    public void setInventario(Inventario inventario) {
-        this.inventario = inventario;
-    }
-    public double totalcompra ()
-    {   
-        double total= 0;
-        for (DetalleCompra detacompra : listaDetalleCompra)
-        {
-             total += detacompra.subtotal();
-        }
-        return total;
-    }
-    public void eliminar (DetalleCompra compra)
+    public void eliminar (compraproducto compra)
     {
        listaDetalleCompra.remove(compra);
     }
-    public void agregar(DetalleCompra nuevo) {
-        for (DetalleCompra detacompra : listaDetalleCompra) {
-            if (detacompra.getProducto().getCodProducto() == nuevo.getProducto().getCodProducto()) {
-                detacompra.setCantidad(detacompra.getCantidad() + nuevo.getCantidad());
-                return;  
+    public boolean agregar(compraproducto nuevo)
+    {
+
+        for (compraproducto detalle : listaDetalleCompra)
+        {
+
+            if (detalle.getProducto().getCodProducto()
+                    == nuevo.getProducto().getCodProducto()) 
+            {
+                if (Double.compare(detalle.getPrecioUnitario(),
+                        nuevo.getPrecioUnitario()) != 0) 
+                {
+                    return false;
+                }
+                detalle.setCantidad(detalle.getCantidad() + nuevo.getCantidad());
+                return true;
             }
         }
-        nuevo.setCompra(this);            
-        listaDetalleCompra.add(nuevo);  
+        nuevo.setCompra(this);
+        listaDetalleCompra.add(nuevo);
+        return true;
     }
-
 }

@@ -88,7 +88,7 @@ public class ProductoDAO
         }
     }  
    
-  public boolean insertarProducto(Producto pr) 
+    public boolean insertarProducto(Producto pr) 
   {
       try(Connection cn = conexion.getConnection())
       {
@@ -157,5 +157,38 @@ public class ProductoDAO
             ps.executeUpdate();
         }
     }
-    
+    public Producto existefk (String texto)
+    {
+        if (texto == null || texto.trim().isEmpty()) {
+        return null;
+        }
+
+        String sql = BASE_SQL + " WHERE num_serie = ? OR nom_prod = ?";
+
+        try (Connection cn = conexion.getConnection();
+             PreparedStatement ps = cn.prepareStatement(sql)) {
+
+            ps.setString(1, texto.trim());
+            ps.setString(2, texto.trim());
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                     Producto p;
+                      if (rs.getString("genero") != null) {
+                          p = new Perfume();
+                      } else {
+                          p = new Accesorio();
+                      }
+                      p.setCodProducto(rs.getInt("cod_producto"));
+                      p.setNomProd(rs.getString("nom_prod"));
+                      p.setNumSerie(rs.getString("num_serie"));
+                      return p;
+                }
+            }
+
+        } catch (SQLException x) {
+            JOptionPane.showMessageDialog(null, "Error al obtener producto: " + x.getMessage());
+        }
+        return null;
+    }
 }

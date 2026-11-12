@@ -24,6 +24,13 @@ public abstract class Producto {
         this.inventario = inventario;
         this.stockActual = 0; 
     }
+    public Object[] getDatosCompra() {
+        return new Object[]{
+            getNomProd(),
+            getNumSerie(),
+            getPrecioUnitario()
+        };
+    }
     public abstract Object[] getDatosTabla();
     
     public String getEstadoStock() {

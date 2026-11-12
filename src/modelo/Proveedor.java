@@ -10,7 +10,8 @@ public class Proveedor {
     private String distrito;
     private String estado;
     public Proveedor() {}
-    public Proveedor(int codProveedor, String numserie,String nomEmpresa, String ruc, String telefono, String calle, String avenida,
+    public Proveedor(int codProveedor, String numserie,String nomEmpresa, String ruc, String telefono, 
+            String calle, String avenida,
             String distrito,String estado) {
         this.codProveedor = codProveedor;
         this.numserie = numserie;
@@ -41,6 +42,11 @@ public class Proveedor {
             telefono,
             distrito+"-"+avenida+"-"+calle,
             estado};
+    }
+    @Override
+    public String toString() 
+    {
+        return nomEmpresa;
     }
     public String getNumserie() {return numserie;}
     public void setNumserie(String numserie) { this.numserie = numserie;}

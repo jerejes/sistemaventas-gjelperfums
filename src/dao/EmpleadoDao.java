@@ -17,13 +17,53 @@ import modelo.Empleado;
 public class EmpleadoDao {
     private String siguienteSerie(Connection cn) throws SQLException {
         try (Statement st = cn.createStatement(); 
-                ResultSet rs = st.executeQuery("SELECT COUNT(*) + 1 FROM rrhh.EMPLEADO")) {
+                ResultSet rs = st.executeQuery("SELECT COUNT(*) + 1 FROM RRHH.EMPLEADO")) {
             rs.next();
             return String.format("EMP%05d", rs.getInt(1));
         }
     }
+    public String existe(Empleado emp)
+    {
+        String sql = "SELECT correo,dni,telefono FROM RRHH.EMPLEADO"
+                + " WHERE correo = ?  OR dni =? OR telefono =?";
+        try(Connection cn = conexion.getConnection();
+              PreparedStatement ps = cn.prepareStatement(sql))
+        {
+            ps.setString(1,emp.getCorreo());
+            ps.setString(2,emp.getDni());
+            ps.setString(3,emp.getTelefono());
+            try(ResultSet rs = ps.executeQuery())
+            {
+                if (rs.next())
+                {
+                    String correobd =rs.getString("correo");
+                    String dnibd =rs.getString("dni");
+                    String telefonobd =rs.getString("telefono");
+                    if(correobd.equals(emp.getCorreo()))
+                    {
+                       return "correo";
+                    }
+                    else if (dnibd.equals(emp.getDni()))
+                    {
+                        return "dni";
+                    }
+                    else if (telefonobd.equals(emp.getTelefono()))
+                    {
+                        return "telefono";
+                    }
+                }
+            }
+        }
+        catch(SQLException x)
+        {
+            JOptionPane.showMessageDialog(null,"Error al buscar un empleado existente"+x
+            ,"Error",JOptionPane.ERROR_MESSAGE);
+        }   
+        return "vacio";
+    }
+            
     public void insertarEmpleado(Empleado emp) throws SQLException {
-        String sql = "INSERT INTO rrhh.EMPLEADO"
+        String sql = "INSERT INTO RRHH.EMPLEADO"
                 + "(num_serie, dni, correo, fecha_nac, nombre, apellido, "
                 + "telefono, direccion, estado, fecha_ingreso, cargo, cod_emplesupervisor) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -58,71 +98,71 @@ public class EmpleadoDao {
             "N° Serie", "DNI", "Correo", "Nombre",
             "Apellido", "Teléfono", "Dirección",
             "Fecha de nacimiento", "Fecha de ingreso",
-            "Cargo", "Estado"
+            "Cargo", "Supervisor", "Estado"
         };
-
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-
-        String sql = "SELECT * FROM rrhh.EMPLEADO";
-
+        String sql = "SELECT * FROM RRHH.VW_EMPLEADO_SUPERVISOR";
         if (texto != null && !texto.isBlank()) {
             sql += " WHERE num_serie LIKE ? "
-                    + "OR nombre LIKE ? "
                     + "OR dni LIKE ? "
+                    + "OR correo LIKE ? "
+                    + "OR nombre LIKE ? "
                     + "OR apellido LIKE ? "
-                    + "OR cargo LIKE ?";
+                    + "OR cargo LIKE ? "
+                    + "OR nombre_supervisor LIKE ? "
+                    + "OR apellido_supervisor LIKE ?";
         }
-
-        sql += " ORDER BY num_serie";
-
-        try (Connection cn = conexion.getConnection(); PreparedStatement ps = cn.prepareStatement(sql)) {
-
+        sql += " ORDER BY cod_empleado";
+        try (Connection cn = conexion.getConnection();
+                PreparedStatement ps = cn.prepareStatement(sql)) {
             if (texto != null && !texto.isBlank()) {
                 String buscar = "%" + texto.trim() + "%";
-
-                ps.setString(1, buscar);
-                ps.setString(2, buscar);
-                ps.setString(3, buscar);
-                ps.setString(4, buscar);
-                ps.setString(5, buscar);
-            }
-
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    Empleado emp = new Empleado(
-                            rs.getInt("cod_empleado"),
-                            rs.getString("dni"),
-                            rs.getString("correo"),
-                            rs.getString("nombre"),
-                            rs.getString("apellido"),
-                            rs.getString("telefono"),
-                            rs.getString("direccion"),
-                            rs.getDate("fecha_nac").toLocalDate(),
-                            rs.getDate("fecha_ingreso").toLocalDate(),
-                            null,
-                            rs.getString("num_serie"),
-                            rs.getString("cargo"),
-                            rs.getString("estado")
-                    );
-
-                    modelo.addRow(emp.mostrarDatos());
+                for (int i = 1; i <= 8; i++) {
+                    ps.setString(i, buscar);
                 }
             }
+            try (ResultSet rs = ps.executeQuery()) {
 
+                while (rs.next()) {
+
+                    String supervisor = rs.getString("nombre_supervisor");
+
+                    if (supervisor != null) 
+                    {
+                        supervisor += " " + rs.getString("apellido_supervisor");
+                    } else 
+                    {
+                        supervisor = "Sin supervisor";
+                    }
+                    Object[] fila = {
+                        rs.getString("num_serie"),
+                        rs.getString("dni"),
+                        rs.getString("correo"),
+                        rs.getString("nombre"),
+                        rs.getString("apellido"),
+                        rs.getString("telefono"),
+                        rs.getString("direccion"),
+                        rs.getDate("fecha_nac"),
+                        rs.getDate("fecha_ingreso"),
+                        rs.getString("cargo"),
+                        supervisor,
+                        rs.getString("estado")
+                    };
+                    modelo.addRow(fila);
+                }
+            }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,
-                    "No se pudieron cargar los empleados.\n"
-                    + "Inténtelo nuevamente.\n" + e.getMessage(),
+                    "No se pudieron cargar los empleados.\n" + "Inténtelo nuevamente.\n" + e.getMessage(),
                     "Error al buscar empleados",
                     JOptionPane.ERROR_MESSAGE);
         }
-
         return modelo;
     }
     public DefaultComboBoxModel<Empleado> listarSupervisores() 
     {
         DefaultComboBoxModel<Empleado> modelo = new DefaultComboBoxModel<>();
-        String sql = "SELECT cod_empleado, nombre, apellido FROM rrhh.EMPLEADO "
+        String sql = "SELECT cod_empleado, nombre, apellido FROM RRHH.EMPLEADO "
                 + "WHERE cargo = 'Supervisor' AND estado = 'ACTIVO'";
 
         try (Connection cn = conexion.getConnection(); 

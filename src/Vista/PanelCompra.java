@@ -1,7 +1,13 @@
 package Vista;
+
+import dao.CompraDAO;
+import render.EstiloTabla;
+
 public class PanelCompra extends javax.swing.JPanel {
+    private static final CompraDAO comdao = new CompraDAO();
     public PanelCompra() {
         initComponents();
+        actualizarTabla();
         btnEliminarCliente.setIcon(icono("/imagenes/trash.png", 20));
         btnBuscarCompra.setIcon(icono("/imagenes/search.png", 20));
         btnNuevaCompra.setIcon(icono("/imagenes/plus.png", 30));
@@ -16,11 +22,11 @@ public class PanelCompra extends javax.swing.JPanel {
         btnBuscarCompra = new javax.swing.JButton();
         btnNuevaCompra = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtbuscarcompra = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblgestioncompras = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         btnEliminarCliente = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
@@ -46,6 +52,7 @@ public class PanelCompra extends javax.swing.JPanel {
         btnBuscarCompra.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarCompra.setText("Buscar ");
         btnBuscarCompra.setPreferredSize(new java.awt.Dimension(110, 26));
+        btnBuscarCompra.addActionListener(this::btnBuscarCompraActionPerformed);
         jPanel5.add(btnBuscarCompra, java.awt.BorderLayout.LINE_START);
 
         btnNuevaCompra.setBackground(new java.awt.Color(0, 102, 102));
@@ -65,9 +72,9 @@ public class PanelCompra extends javax.swing.JPanel {
         jLabel3.setMinimumSize(new java.awt.Dimension(200, 18));
         jPanel3.add(jLabel3, java.awt.BorderLayout.PAGE_START);
 
-        jTextField1.setPreferredSize(new java.awt.Dimension(40, 50));
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
-        jPanel3.add(jTextField1, java.awt.BorderLayout.CENTER);
+        txtbuscarcompra.setPreferredSize(new java.awt.Dimension(40, 50));
+        txtbuscarcompra.addActionListener(this::txtbuscarcompraActionPerformed);
+        jPanel3.add(txtbuscarcompra, java.awt.BorderLayout.CENTER);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setPreferredSize(new java.awt.Dimension(6, 10));
@@ -96,7 +103,7 @@ public class PanelCompra extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblgestioncompras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -107,7 +114,7 @@ public class PanelCompra extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblgestioncompras);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -141,19 +148,25 @@ public class PanelCompra extends javax.swing.JPanel {
         add(jPanel6, java.awt.BorderLayout.LINE_START);
     }// </editor-fold>//GEN-END:initComponents
 
+        public void actualizarTabla() 
+        {
+        txtbuscarcompra.setText("");
+        tblgestioncompras.setModel(comdao.comprasrealizadas(""));
+        EstiloTabla.aplicar(tblgestioncompras);
+         }
     public  javax.swing.ImageIcon icono(String ruta, int tam) 
     {
     java.awt.Image img = new javax.swing.ImageIcon(getClass().getResource(ruta)).getImage();
     return new javax.swing.ImageIcon(img.getScaledInstance(tam, tam, java.awt.Image.SCALE_SMOOTH));
     }
     
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void txtbuscarcompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscarcompraActionPerformed
+    }//GEN-LAST:event_txtbuscarcompraActionPerformed
 
     private void btnNuevaCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaCompraActionPerformed
         java.awt.Frame parent = (java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(this);
         panelRegistroCompra P = new panelRegistroCompra(parent, true);
-        P.setSize(820, 580);
+        P.setSize(620, 800);
         P.setLocationRelativeTo(this);
         P.setVisible(true);
     }//GEN-LAST:event_btnNuevaCompraActionPerformed
@@ -161,6 +174,10 @@ public class PanelCompra extends javax.swing.JPanel {
     private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarClienteActionPerformed
+
+    private void btnBuscarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCompraActionPerformed
+        tblgestioncompras.setModel(comdao.comprasrealizadas(txtbuscarcompra.getText()));
+    }//GEN-LAST:event_btnBuscarCompraActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -177,7 +194,7 @@ public class PanelCompra extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tblgestioncompras;
+    private javax.swing.JTextField txtbuscarcompra;
     // End of variables declaration//GEN-END:variables
 }

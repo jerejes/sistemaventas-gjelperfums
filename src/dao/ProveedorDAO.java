@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import modelo.Proveedor;
 import conexionSqlServer.conexion;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Empleado;
@@ -126,5 +127,36 @@ public class ProveedorDAO {
         }
         return modelo;
     }
-    
+    public DefaultComboBoxModel<Proveedor> listaproveedores ()
+    {
+        DefaultComboBoxModel<Proveedor> modeloprov = 
+                new DefaultComboBoxModel<Proveedor>();
+        String sql = "SELECT * FROM COMPRAS.PROVEEDOR";
+        try(Connection cn = conexion.getConnection();
+         Statement st = cn.createStatement();
+         ResultSet rs = st.executeQuery(sql))
+         {
+             while (rs.next())
+             {
+                Proveedor prov = new Proveedor(
+                rs.getInt("cod_proveedor"),
+                rs.getString("num_serie"),
+                rs.getString("nom_empresa"),
+                rs.getString("ruc"),
+                rs.getString("telefono"),
+                rs.getString("calle"),
+                rs.getString("avenida"),
+                rs.getString("distrito"),
+                rs.getString("estado"));
+                 if ("ACTIVO".equals(prov.getEstado()))
+                 {
+                     modeloprov.addElement(prov);
+                 }
+             }
+         }catch(SQLException x)
+         {
+             JOptionPane.showMessageDialog(null,"Error al agregar un modelo al combo");
+         }
+            return modeloprov;
+    }
 }

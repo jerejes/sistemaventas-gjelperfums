@@ -1,19 +1,32 @@
 package modelo;
-public class DetalleCompra 
+public class compraproducto 
 {
     private Compra compra;       
     private Producto producto;    
     private double precioUnitario;
     private int cantidad;
-    private double descuento;
-
-    public DetalleCompra() {}
-    public DetalleCompra(Compra compra, Producto producto, double precioUnitario, int cantidad, double descuento) {
+    public compraproducto() {}
+    public compraproducto(Compra compra, Producto producto, double precioUnitario, int cantidad) {
         this.compra = compra;
         this.producto = producto;
         this.precioUnitario = precioUnitario;
         this.cantidad = cantidad;
-        this.descuento = descuento;
+    }
+    public compraproducto(Producto producto, double precioUnitario, int cantidad) 
+    {
+        this.producto = producto;
+        this.precioUnitario = precioUnitario;
+        this.cantidad = cantidad;
+    }
+    public Object[] DatosTabla() {
+        return new Object[]{
+            producto.getNumSerie(),
+            producto.getNomProd(),
+            producto instanceof Perfume ? "Perfume" : "Accesorio",
+            precioUnitario,
+            cantidad,
+            precioUnitario * cantidad
+        };
     }
     public Compra getCompra() {return compra; }
     public void setCompra(Compra compra) {this.compra = compra;}
@@ -26,14 +39,6 @@ public class DetalleCompra
    
     public int getCantidad() { return cantidad; }
     public void setCantidad(int cantidad) { this.cantidad = cantidad; }
-    
-    public double getDescuento() { return descuento; }
-    public void setDescuento(double descuento) { this.descuento = descuento; }
-    
-    public double subtotal ()
-    {
-        return cantidad*precioUnitario-descuento;
-    }
 }
 
 

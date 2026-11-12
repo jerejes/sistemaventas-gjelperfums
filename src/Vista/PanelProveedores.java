@@ -69,6 +69,7 @@ public class PanelProveedores extends javax.swing.JPanel {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
         tblmostrardatosprov.setModel(new javax.swing.table.DefaultTableModel(

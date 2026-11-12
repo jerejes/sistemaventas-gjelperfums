@@ -159,11 +159,14 @@ public class panelRegistroProveedores extends javax.swing.JPanel {
         String calle = txtcalle.getText().trim();
         String avenida = txtavenida.getText().trim();
         String distrito = txtdistrito.getText().trim();
-        if (nombre.isBlank() || ruc.isBlank() || telefono.isBlank()
-                || calle.isBlank() || avenida.isBlank() || distrito.isBlank()) 
-        {
-            JOptionPane.showMessageDialog(this,"Complete todos los campos.",
-                    "Campos vacíos",JOptionPane.WARNING_MESSAGE);
+
+        if (nombre.isEmpty() || ruc.isEmpty() || telefono.isEmpty()
+                || calle.isEmpty() || avenida.isEmpty() || distrito.isEmpty()) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Complete todos los campos.",
+                    "Campos vacíos",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         if (!ruc.matches("\\d{11}")) 

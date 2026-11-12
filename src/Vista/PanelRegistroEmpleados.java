@@ -1,9 +1,9 @@
 package Vista;
+import java.beans.Beans;
 import dao.EmpleadoDao;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import javax.swing.JOptionPane;
+import java.time.*;
+import static javax.swing.SwingUtilities.getAncestorOfClass;
 import modelo.Empleado;
 
 public class PanelRegistroEmpleados extends javax.swing.JPanel {
@@ -16,14 +16,14 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
 
     cmbcargo.setModel(new javax.swing.DefaultComboBoxModel<>(
      new String[]{"Supervisor", "Almacenero", "Vendedor"}));
-
-    cmbsupervisor.setModel(dao.listarSupervisores());
-
+    
+     if (!Beans.isDesignTime()) 
+     {
+     cmbsupervisor.setModel(dao.listarSupervisores());
+     }
     txtFecNac.setMaxSelectableDate(new java.util.Date());
-
     cmbcargo.addActionListener(e -> actualizarSupervisor());
-   actualizarSupervisor();
-//    btnguardaremp.addActionListener(e -> guardar());
+    actualizarSupervisor();
     btnLimpiaremp.addActionListener(e -> limpiar());
     }
 
@@ -176,6 +176,7 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
         btnLimpiaremp.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiaremp.setText("Limpiar ");
         btnLimpiaremp.setToolTipText("");
+        btnLimpiaremp.addActionListener(this::btnLimpiarempActionPerformed);
         jPanel1.add(btnLimpiaremp, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 580, 130, 50));
 
         jLabel7.setFont(new java.awt.Font("Square721 Cn BT", 1, 13)); // NOI18N
@@ -219,12 +220,11 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
                 JOptionPane.YES_NO_OPTION);
         if (x == JOptionPane.YES_OPTION) {
             setVisible(false);
+            limpiar();
         }
     }//GEN-LAST:event_btnCerrarempleadoActionPerformed
-
     private void btnguardarempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarempActionPerformed
        
-        // Obtener los datos
         String dni = txtDni.getText().trim();
         String nombre = txtNombre.getText().trim();
         String apellido = txtApellido.getText().trim();
@@ -233,9 +233,8 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
         String direccion = txtDireccion.getText().trim();
         String cargo = (String) cmbcargo.getSelectedItem();
 
-        // Validar campos vacíos
         if (dni.isEmpty() || nombre.isEmpty() || apellido.isEmpty()
-                || correo.isEmpty() || direccion.isEmpty()
+                || correo.isEmpty() || direccion.isEmpty() || telefono.isEmpty()
                 || cargo == null || txtFecNac.getDate() == null
                 || txtFecingreso.getDate() == null) {
 
@@ -244,26 +243,21 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
                     "Campos vacíos", JOptionPane.WARNING_MESSAGE);
             return;
         }
-
-        // Validar DNI: 8 dígitos
-        if (!dni.matches("[0-9]{8}")) {
-            JOptionPane.showMessageDialog(this,
-                    "El DNI debe contener exactamente 8 dígitos.",
+        if (!dni.matches("\\d{8}")) {
+            JOptionPane.showMessageDialog(this,"El DNI debe contener exactamente 8 dígitos.",
                     "DNI inválido", JOptionPane.WARNING_MESSAGE);
             txtDni.requestFocus();
             return;
         }
 
-        // Validar teléfono: 9 dígitos (si se ingresó)
-        if (!telefono.isEmpty() && !telefono.matches("[0-9]{9}")) {
+        if (!telefono.matches("\\d{9}")) {
             JOptionPane.showMessageDialog(this,
-                    "El teléfono debe contener exactamente 9 dígitos.",
+                    "El Teléfono debe contener exactamente 9 dígitos.",
                     "Teléfono inválido", JOptionPane.WARNING_MESSAGE);
             txttelf.requestFocus();
             return;
         }
 
-        // Validar correo
         if (!correo.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
             JOptionPane.showMessageDialog(this,
                     "Ingrese un correo electrónico válido.",
@@ -272,15 +266,13 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
             return;
         }
 
-        // Convertir fechas
-        java.time.LocalDate fechaNac = txtFecNac.getDate().toInstant()
-                .atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+        LocalDate fechaNac = txtFecNac.getDate().toInstant()
+                .atZone(ZoneId.systemDefault()).toLocalDate();
 
-        java.time.LocalDate fechaIngreso = txtFecingreso.getDate().toInstant()
-                .atZone(java.time.ZoneId.systemDefault()).toLocalDate();
-
-        // Validar fechas
-        if (fechaNac.isAfter(java.time.LocalDate.now())) {
+        LocalDate fechaIngreso = txtFecingreso.getDate().toInstant().atZone
+        (ZoneId.systemDefault()).toLocalDate();
+        if (fechaNac.isAfter(LocalDate.now())) 
+        {
             JOptionPane.showMessageDialog(this,
                     "La fecha de nacimiento no puede ser futura.",
                     "Fecha inválida", JOptionPane.WARNING_MESSAGE);
@@ -294,13 +286,13 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
             return;
         }
 
-        // Obtener supervisor
         Empleado supervisor = null;
 
-        if (!"Supervisor".equals(cargo)) {
+        if (!"Supervisor".equals(cargo)) 
+        {
             supervisor = (Empleado) cmbsupervisor.getSelectedItem();
-
-            if (supervisor == null) {
+            if (supervisor == null) 
+            {
                 JOptionPane.showMessageDialog(this,
                         "Seleccione un supervisor.",
                         "Supervisor requerido", JOptionPane.WARNING_MESSAGE);
@@ -308,39 +300,59 @@ public class PanelRegistroEmpleados extends javax.swing.JPanel {
                 return;
             }
         }
-
-                Empleado emp = new Empleado(
-                  dni,
-                  correo,
-                  nombre,
-                  apellido,
-                  telefono,
-                  direccion,
-                  fechaNac,
-                  fechaIngreso,
-                  supervisor,
-                  cargo,
-                  "ACTIVO"
-          );
-
-        // Insertar en la base de datos
-        try {
-            dao.insertarEmpleado(emp);
-
-            JOptionPane.showMessageDialog(this,
-                    "Empleado registrado correctamente.",
-                    "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
-
-            cmbsupervisor.setModel(dao.listarSupervisores());
-            limpiar();
-
-        } catch (java.sql.SQLException e) {
-            JOptionPane.showMessageDialog(this,
-                    "No se pudo registrar el empleado.\n" + e.getMessage(),
-                    "Error al registrar", JOptionPane.ERROR_MESSAGE);
+        Empleado emp = new Empleado(dni, correo, nombre, apellido,telefono,
+        direccion, fechaNac,  fechaIngreso, supervisor,cargo, "ACTIVO");
+        String existe = dao.existe(emp);
+        if (existe.equals("dni"))
+        {
+            JOptionPane.showMessageDialog(null,"El Dni ya existe","ERROR",
+                    JOptionPane.WARNING_MESSAGE);
         }
+        else if (existe.equals("correo"))
+        {
+            JOptionPane.showMessageDialog(null, "El Correo ya existe", "ERROR",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+        else if (existe.equals("telefono"))
+        {
+            JOptionPane.showMessageDialog(null, "El telefono ya existe", "ERROR",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        {
+            try
+            {
+                dao.insertarEmpleado(emp);
+                JOptionPane.showMessageDialog(this,
+                        "Empleado registrado correctamente.",
+                        "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
+                
+                cmbsupervisor.setModel(dao.listarSupervisores());
+                PanelEmpledos panel = (PanelEmpledos)getAncestorOfClass(
+                        PanelEmpledos.class, this);
+                if (panel != null) {
+                    panel.actualizarTabla();
+                }
+                limpiar();
+                
 
+            } catch (java.sql.SQLException e) 
+            {
+                JOptionPane.showMessageDialog(this,
+                        "No se pudo registrar el empleado.\n" + e.getMessage(),
+                        "Error al registrar", JOptionPane.ERROR_MESSAGE);
+            }
+        
+        }
     }//GEN-LAST:event_btnguardarempActionPerformed
+    private void btnLimpiarempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarempActionPerformed
+        int limpiar = JOptionPane.showConfirmDialog(this, "¿Seguro que desea Limpiar?", "Limpiar",
+                JOptionPane.YES_NO_OPTION);
+        if (limpiar == JOptionPane.YES_OPTION) {
+            limpiar();
+        }
+    }//GEN-LAST:event_btnLimpiarempActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarempleado;
     private javax.swing.JButton btnLimpiaremp;

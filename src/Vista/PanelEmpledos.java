@@ -1,12 +1,15 @@
 package Vista;
 import dao.EmpleadoDao;
+import java.awt.Color;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import render.EstiloTabla;
 
 public class PanelEmpledos extends javax.swing.JPanel {
     public final EmpleadoDao empdao= new EmpleadoDao();
     public PanelEmpledos() {
         initComponents();
+        actualizarTabla();
         panelRegistroEmpleados1.setVisible(false);
         panelRegistroEmpleados1.addComponentListener(new ComponentAdapter() 
         {
@@ -25,10 +28,10 @@ public class PanelEmpledos extends javax.swing.JPanel {
      btnmodificar.setIcon(icono("/imagenes/edit.png", 20));
       }
 
-
-       public void actualizarTabla() {
+    public void actualizarTabla() {
         txtbuscar.setText("");
         tblmostrarempleados.setModel(empdao.buscarEmpleado(""));
+        EstiloTabla.aplicar(tblmostrarempleados);
     }
 
 
@@ -55,6 +58,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
         btnEliminarEmpleado = new javax.swing.JButton();
         panelRegistroEmpleados1 = new Vista.PanelRegistroEmpleados();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -104,6 +108,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
         btnbuscaremp.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         btnbuscaremp.setForeground(new java.awt.Color(255, 255, 255));
         btnbuscaremp.setText("Buscar ");
+        btnbuscaremp.addActionListener(this::btnbuscarempActionPerformed);
 
         btnmodificar.setBackground(new java.awt.Color(0, 51, 204));
         btnmodificar.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
@@ -154,6 +159,7 @@ public class PanelEmpledos extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblmostrarempleados.setOpaque(false);
         jScrollPane1.setViewportView(tblmostrarempleados);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -194,6 +200,10 @@ public class PanelEmpledos extends javax.swing.JPanel {
         btnEliminarEmpleado.setVisible(false);
         btnmodificar.setVisible(false);
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
+
+    private void btnbuscarempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarempActionPerformed
+        tblmostrarempleados.setModel(empdao.buscarEmpleado(txtbuscar.getText()));
+    }//GEN-LAST:event_btnbuscarempActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

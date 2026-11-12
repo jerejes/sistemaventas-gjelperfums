@@ -220,7 +220,8 @@ public class PanelRegistroProductos extends javax.swing.JPanel {
                 return;
             }
             Producto pro;
-            if (chkperfume.isSelected()) {
+            if (chkperfume.isSelected()) 
+            {
                 if (!txtcont_ml.getText().trim().isEmpty()) {
                     int ml = Integer.parseInt(txtcont_ml.getText().trim());
                     try {

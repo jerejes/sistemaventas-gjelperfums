@@ -1,11 +1,11 @@
 package Vista;
-import javax.swing.JOptionPane;
 import dao.ClienteDAO;
 import modelo.Cliente;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;       
+import static javax.swing.SwingUtilities.getAncestorOfClass;
 public class PanelRegsitroClientes extends javax.swing.JPanel {
     private final ClienteDAO daocli = new ClienteDAO();
     public PanelRegsitroClientes() {
@@ -179,13 +179,17 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
         String apellido = txtApellidoCliente.getText().trim();
         String telefono = txttelf.getText().trim();
         String direccion = txtDireccionCliente.getText().trim();
-        
-        if(dni.isBlank() || correo.isBlank() ||  nombre.isBlank() || apellido.isBlank()
-           || telefono.isBlank() || direccion.isBlank() ||txtFecNacCliente.getDate()==null)
-        {
-            JOptionPane.showMessageDialog(null,"Llene todos los datos");
+
+        if (dni.isEmpty() || correo.isEmpty() || nombre.isEmpty()
+                || apellido.isEmpty() || telefono.isEmpty()
+                || direccion.isEmpty() || txtFecNacCliente.getDate() == null) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Complete todos los campos obligatorios.",
+                    "Campos vacíos", JOptionPane.WARNING_MESSAGE);
             return;
         }
+        
         if ( !telefono.matches("\\d{9}"))
         {
             JOptionPane.showMessageDialog(null,"Corrija el número de teléfono debe tener 9 dígitos.");
@@ -224,7 +228,7 @@ public class PanelRegsitroClientes extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this,
                         "Cliente registrado correctamente.");
                 limpiarCampos();
-                PanelCliente panel = (PanelCliente) javax.swing.SwingUtilities.getAncestorOfClass(
+                PanelCliente panel = (PanelCliente)getAncestorOfClass(
                         PanelCliente.class, this);
                 if (panel != null) {
                     panel.actualizarTabla();

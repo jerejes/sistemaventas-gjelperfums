@@ -31,25 +31,11 @@ public class Empleado extends Persona {
         this.cargo = cargo;
         this.estado = estado;
     }
-    @Override
-public String toString() {
-    return getNombre() + " " + getApellido();
-}
-    public Object[] mostrarDatos() {
-        return new Object[]{
-            getNumserie(),
-            getDni(),
-            getCorreo(),
-            getNombre(),
-            getApellido(),
-            getTelefono(),
-            getDireccion(),
-            getFechanac(),
-            getFechaIngreso(),
-            getCargo(),
-            getEstado()
-        };
+        @Override
+    public String toString() {
+        return getNombre() + " " + getApellido();
     }
+
     public String getNumserie() {
         return numserie;
     }
